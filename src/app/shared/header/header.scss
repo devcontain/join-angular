@@ -1,0 +1,102 @@
+.menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-left: 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 6px rgb(167, 167, 167);
+    z-index: 990;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        font-size: 20px;
+        margin-left: 348px;
+    }
+}
+
+.menu-joinlogo-handy {
+    display: none;
+}
+
+.menu-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    width: 56px;
+    border-radius: 150px;
+    border: 3px solid rgb(41, 41, 41);
+    cursor: pointer;
+    color: #29ABE2;
+    font-size: 20px;
+    font-weight: 700;
+
+    &:hover {
+        background-color: rgb(228, 228, 228);
+    }
+}
+
+.menu-images {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    gap: 12px;
+}
+
+.menu-help-img {
+    img {
+        height: 20px;
+        border: 0;
+    }
+
+    img:hover {
+        height: 22px;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .menu {
+        img {
+            width: 64px;
+            margin-left: 40px;
+        }
+
+        span {
+            margin-left: 0;
+        }
+
+        .menu-help-img img {
+            width: 20px;
+            margin-left: 2px;
+
+            &:hover {
+                margin-left: 0;
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+
+    .menu-joinlogo-handy {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .menu span {
+        display: none;
+    }
+
+    .menu-joinlogo-handy {
+        width: 40px !important;
+        margin-left: 20px !important;
+    }
+
+    .menu-user {
+        width: 40px;
+        height: 40px;
+    }
+}

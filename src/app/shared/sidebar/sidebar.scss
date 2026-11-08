@@ -1,0 +1,142 @@
+.sec-menu {
+    position: fixed;
+    background-color: rgb(42, 54, 71);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    align-items: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    z-index: 2;
+}
+
+.sec-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sec-menu-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sec-menu-board {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin-top: 20px;
+    padding-left: 56px;
+    padding-right: 56px;
+}
+
+.sec-menu-board:hover {
+    transition: 0.2s;
+    background-color: rgb(47, 71, 102);
+}
+
+.sec-menu-flex img {
+    width: 30px;
+    margin-right: 8px;
+    image-rendering: pixelated;
+}
+
+.sec-menu-flex-police {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.sec-menu-flex-police p {
+    color: #CDCDCD;
+    padding-left: 60px;
+    padding-right: 58px;
+}
+
+.sec-menu-flex-police p:hover {
+    color: rgb(58, 140, 235);
+}
+
+@media only screen and (max-width: 1300px) {
+    .sec-menu {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        span {
+            display: none;
+        }
+
+        img {
+            height: 80px;
+        }
+    }
+
+    .sec-menu-flex {
+        margin-top: 80%;
+        margin-bottom: 2000%;
+
+        img {
+            height: 24px;
+            width: 24px;
+            margin: 0px;
+        }
+    }
+
+    .sec-menu-board {
+        padding: 12px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .sec-menu-flex-police {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .sec-menu {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        background-color: rgb(42, 54, 71);
+        padding: 0px;
+        top: inherit;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        height: 80px;
+    }
+
+    .sec-menu-flex {
+                flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+    }
+
+    .sec-menu-board {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0px;
+        padding: 0px;
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        font-size: 14px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .sec-menu-board {
+        margin: 0px;
+    }
+}

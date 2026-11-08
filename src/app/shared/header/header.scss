@@ -10,7 +10,7 @@
     height: 102px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 6px rgb(167, 167, 167);
-    z-index: 990;
+    z-index: 1;
 
     span {
         font-size: 20px;
@@ -62,7 +62,7 @@
 .menu-close {
     position: fixed;
     inset: 0;
-    z-index: 991;
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -148,6 +148,10 @@
 }
 
 @media only screen and (max-width: 700px) {
+    .menu {
+        height: 86px;
+    }
+
     .menu span {
         display: none;
     }

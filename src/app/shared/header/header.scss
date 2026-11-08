@@ -1,15 +1,16 @@
 .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     padding-left: 0;
+    height: 102px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 6px rgb(167, 167, 167);
     z-index: 990;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     span {
         font-size: 20px;
@@ -31,6 +32,7 @@
     border: 3px solid rgb(41, 41, 41);
     cursor: pointer;
     color: #29ABE2;
+    background-color: white;
     font-size: 20px;
     font-weight: 700;
 

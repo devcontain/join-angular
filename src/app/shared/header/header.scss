@@ -59,66 +59,6 @@
     }
 }
 
-.menu-close {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.open-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 30px;
-    top: 102px;
-    width: 160px;
-    height: 156px;
-
-    background-color: rgb(42, 54, 71);
-    border-radius: 20px 0 20px 20px;
-    animation: open-menu-animation 0.5s;
-
-    a,
-    button {
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
-        width: 100%;
-        flex: 1;
-        padding-left: 30px;
-
-        background-color: transparent;
-        color: white;
-        text-decoration: none;
-        border: none;
-        text-align: left;
-        cursor: pointer;
-
-        &:hover {
-            background-color: rgb(47, 71, 102);
-        }
-    }
-}
-
-.open-menu-up {
-    border-radius: 20px 0 0 0;
-}
-
-.open-menu-down {
-    border-radius: 0 0 20px 20px;
-}
-
-@keyframes open-menu-animation {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 @media only screen and (max-width: 1030px) {
     .menu {
         img {

@@ -1,3 +1,6 @@
+@if (menu.menuOpen()) {
+<app-menu-modal (closed)="menu.closeMenu()" />
+}
 <app-header />
 <app-sidebar />
 <router-outlet />

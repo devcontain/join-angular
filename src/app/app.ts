@@ -1,5 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MenuModal } from './shared/menu-modal/menu-modal';
+import { Menu } from './shared/menu';
 import { Header } from './shared/header/header';
 import { Sidebar } from './shared/sidebar/sidebar';
 
@@ -7,6 +9,7 @@ import { Sidebar } from './shared/sidebar/sidebar';
   selector: 'app-root',
   imports: [
     RouterOutlet,
+    MenuModal,
     Header,
     Sidebar
   ],
@@ -15,4 +18,5 @@ import { Sidebar } from './shared/sidebar/sidebar';
 })
 export class App {
   protected readonly title = signal('join-angular');
+  readonly menu = inject(Menu);
 }

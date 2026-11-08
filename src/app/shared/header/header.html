@@ -8,28 +8,10 @@
             <img src="/assets/images/help_icon.png" alt="Help">
         </a>
 
-        <button type="button" class="menu-user" aria-label="Benutzermenü öffnen" [attr.aria-expanded]="menuOpen()"
-            (click)="toggleMenu()">
+        <button type="button" class="menu-user" aria-label="Benutzermenü öffnen" [attr.aria-expanded]="menu.menuOpen()"
+            (click)="menu.toggleMenu()">
             {{ userInitials() }}
         </button>
-
-        @if (menuOpen()) {
-        <div class="menu-close" (click)="closeMenu()">
-            <nav id="menu_open" class="open-menu" (click)="$event.stopPropagation()" aria-label="Benutzermenü">
-                <a routerLink="/privacy-policy" class="open-menu-up" (click)="closeMenu()">
-                    Privacy Policy
-                </a>
-
-                <a routerLink="/legal-notice" class="open-menu-mid" (click)="closeMenu()">
-                    Legal notice
-                </a>
-
-                <button type="button" class="open-menu-down" (click)="closeMenu()">
-                    Log out
-                </button>
-            </nav>
-        </div>
-        }
 
         <div id="menu_open"></div>
     </div>

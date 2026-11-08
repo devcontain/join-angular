@@ -1,0 +1,16 @@
+<div class="menu-close" (click)="closeMenu()">
+    <nav class="open-menu" (click)="$event.stopPropagation()" aria-label="Benutzermenü">
+
+        <a routerLink="/privacy-policy" class="open-menu-up">
+            Privacy Policy
+        </a>
+
+        <a routerLink="/legal-notice" class="open-menu-mid">
+            Legal notice
+        </a>
+
+        <button type="button" class="open-menu-down">
+            Log out
+        </button>
+    </nav>
+</div>

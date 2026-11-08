@@ -4,14 +4,16 @@ import { MenuModal } from './shared/menu-modal/menu-modal';
 import { Menu } from './shared/menu';
 import { Header } from './shared/header/header';
 import { Sidebar } from './shared/sidebar/sidebar';
+import { Summary } from './features/summary/summary';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', 
   imports: [
     RouterOutlet,
     MenuModal,
     Header,
-    Sidebar
+    Sidebar,
+    Summary
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

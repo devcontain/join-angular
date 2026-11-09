@@ -112,7 +112,7 @@
     }
 
     .sec-menu-flex {
-                flex-direction: row;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         height: 100%;
@@ -132,6 +132,10 @@
         font-size: 14px;
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    .menu-joinlogo {
+        display: none;
     }
 }
 

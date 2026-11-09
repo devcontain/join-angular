@@ -284,3 +284,211 @@
         font-size: 64px;
     }
 }
+
+@media only screen and (max-width: 1300px) {
+    .summary-margin {
+        margin-left: 234px;
+    }
+
+    .summary-welcome {
+        h2 {
+            font-size: 32px;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+    }
+
+    .summary-tasks {
+        margin-right: 30px;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .summary-margin {
+        margin-left: 0px;
+        margin-bottom: 120px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .summary-welcome {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: white;
+        animation: handy-welcome 2s forwards;
+        animation-delay: 2s;
+        animation-iteration-count: 1
+    }
+
+    @media only screen and (max-width: 700px) {
+        .summary-upcoming-deadline {
+            margin-left: 20px;
+        }
+    }
+
+    .summary-join-360 {
+        margin-left: 10%;
+        flex-direction: column;
+        align-items: normal;
+        height: 104px;
+        width: 250px;
+
+        h1 {
+            margin: 0px;
+            font-size: 47px;
+        }
+
+        p {
+            margin: 0px;
+            font-size: 20px;
+        }
+    }
+
+    .summary-spacer {
+        display: none;
+    }
+
+    .summary-spacer-handy {
+        display: block;
+        width: 90px;
+        border: 2px solid;
+        border-color: #29ABE2;
+        border-radius: 4px;
+        margin-top: 16px;
+    }
+
+    .summary-tasks-flex {
+        margin-left: 10%;
+        margin-top: 40px;
+        width: 396px;
+        height: 384px;
+
+    }
+
+    .summary-tasks {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+    }
+
+    .summary-todo-done {
+        width: 186px;
+        height: 110px;
+        border-radius: 20px;
+
+        img {
+            width: 40px;
+            height: 40px;
+
+        }
+
+        h3 {
+            font-size: 47px;
+        }
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+    .summary-todo-done:hover {
+        width: 192px;
+        height: 112px;
+    }
+
+    .summary-todo-done-flex {
+        height: 120px;
+        max-height: 120px;
+    }
+
+    .summary-urgent-flex {
+        width: 396px;
+        height: 110px;
+        border-radius: 20px;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .summary-urgent {
+        margin-left: 56px;
+
+        margin-right: 20px;
+
+        h3 {
+            font-size: 47px;
+        }
+
+        span {
+            font-size: 14px;
+        }
+
+    }
+
+    .summary-urgent-flex:hover {
+        margin-bottom: -5px;
+        height: 115px;
+        transition: 0.1s;
+        background-color: #2A3647;
+        color: white;
+
+    }
+
+    .summary-urgent-spacer {
+        height: 68px;
+    }
+
+    .summary-upcoming-deadline {
+        h3 {
+            font-size: 16px;
+        }
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+    .summary-board-progress {
+        height: 116px;
+        width: 116px;
+
+        h3 {
+            font-size: 47px;
+        }
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+    .summary-board-progressl:hover {
+        height: 120px;
+        width: 120px;
+        margin-right: -4px;
+        margin-top: -2px;
+    }
+
+    .summary-board-progress:hover {
+        height: 120px;
+        width: 120px;
+        margin-top: -2px;
+    }
+
+    .summary-board-progressr:hover {
+        height: 120px;
+        width: 120px;
+        margin-left: -4px;
+        margin-top: -2px;
+    }
+}

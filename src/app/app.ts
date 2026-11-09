@@ -5,6 +5,9 @@ import { Menu } from './shared/menu';
 import { Header } from './shared/header/header';
 import { Sidebar } from './shared/sidebar/sidebar';
 import { Summary } from './features/summary/summary';
+import { AddTask } from './features/add-task/add-task';
+import { Board } from './features/board/board';
+import { Contacts } from './features/contacts/contacts';
 
 @Component({
   selector: 'app-root', 
@@ -13,7 +16,10 @@ import { Summary } from './features/summary/summary';
     MenuModal,
     Header,
     Sidebar,
-    Summary
+    Summary,
+    AddTask,
+    Board,
+    Contacts
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

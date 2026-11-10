@@ -1,5 +1,35 @@
 .add-task-container {
-    margin: 150px 48px 0 280px;
+    margin-top: 150px;
+    margin-right: 48px;
+    margin-bottom: 0;
+    margin-left: 280px;
     padding: 24px;
     z-index: 1;
+}
+
+@media only screen and (max-width: 1300px) {
+    .add-task-container {
+        margin-top: 110px;
+        margin-bottom: 40px;
+        margin-left: 218px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .add-task-container {
+        margin-left: 90px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .add-task-container {
+        margin-left: 45px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .add-task-container {
+        margin-right: 0;
+        margin-left: 0;
+    }
 }

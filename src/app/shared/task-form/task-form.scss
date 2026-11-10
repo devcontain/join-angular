@@ -567,6 +567,10 @@ textarea::placeholder {
     .add_task_prio #prio-buttons input:checked+label {
         font-size: 14px;
     }
+
+    .bottom-section {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 450px) {
@@ -604,15 +608,9 @@ textarea::placeholder {
 
     .bottom-section {
         justify-content: flex-end;
-        margin-bottom: 32px;
-    }
-
-    #required-info {
-        display: none;
     }
 
     .bottom-section .blue-button {
         font-size: 16px;
-        height: 40px;
     }
 }

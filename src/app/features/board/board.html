@@ -1,1 +1,69 @@
-<p>board works!</p>
+<main class="board">
+    <section class="board-head">
+        <div class="place-bord-header-botton">
+            <h1 class="board">Board</h1>
+            <button type="button" class="add-task-new-button" aria-label="Add task"></button>
+        </div>
+
+        <div class="place-search-task">
+            <form class="search-task-tag" role="search">
+                <input id="search_input" class="search-task-in" type="search" placeholder="Search..."
+                    aria-label="Search tasks" />
+                <button class="search-task-button" type="submit">
+                    Search
+                </button>
+            </form>
+
+            <button type="button" class="add-task-button">
+                Add task +
+            </button>
+        </div>
+    </section>
+
+
+    <section class="board-body-task">
+        <div class="single-task-head">
+            <div class="place-bord-buttons">
+                <h2 class="single-task-header">To do</h2>
+                <button type="button" class="style-task-button" aria-label="Add task to To do"></button>
+            </div>
+
+            <div class="single-task" id="to_do_place">
+                <div class="empty-task-place">No tasks To do</div>
+            </div>
+        </div>
+
+        <div id="in_progress_head" class="single-task-head">
+            <div class="place-bord-buttons">
+                <h2 class="single-task-header">In progress</h2>
+                <button type="button" class="style-task-button" aria-label="Add task to In progress"></button>
+            </div>
+
+            <div class="single-task" id="in_progress_place">
+                <div class="empty-task-place">No tasks In progress</div>
+            </div>
+        </div>
+
+        <div id="await_feedback_head" class="single-task-head">
+            <div class="place-bord-buttons">
+                <h2 class="single-task-header">Await feedback</h2>
+                <button type="button" class="style-task-button" aria-label="Add task to Await feedback"></button>
+            </div>
+
+            <div class="single-task" id="await_feedback_place">
+                <div class="empty-task-place">No tasks Await feedback</div>
+            </div>
+        </div>
+
+        <div id="done_head" class="single-task-head">
+            <div class="place-bord-buttons">
+                <h2 class="single-task-header">Done</h2>
+            </div>
+
+            <div class="single-task" id="done_place">
+                <div class="empty-task-place">No tasks Done</div>
+            </div>
+        </div>
+    </section>
+
+</main>

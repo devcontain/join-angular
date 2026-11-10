@@ -1,14 +1,8 @@
 .menu-close {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
     z-index: 999;
-}
-
-.open-menu {
-    position: absolute;
-    top: 80px;
-    right: 0;
 }
 
 .open-menu {
@@ -61,5 +55,11 @@
 
     to {
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .open-menu {
+        top: 86px;
     }
 }

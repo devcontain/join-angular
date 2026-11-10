@@ -1,0 +1,286 @@
+:host {
+    display: block;
+}
+
+main.board {
+    margin-top: 150px;
+    margin-right: 64px;
+    margin-bottom: 48px;
+    margin-left: 328px;
+    min-width: 0;
+}
+
+.board-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+}
+
+h1.board {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.place-bord-header-botton,
+.place-search-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+form.search-task-tag {
+    display: flex;
+    align-items: center;
+    border: 1px solid #a8a8a8;
+    border-radius: 10px;
+    background: white;
+    color: #555;
+}
+
+form.search-task-tag:hover,
+form.search-task-tag:focus-within {
+    border-color: #1183d6;
+    box-shadow: 0 0 3px #1183d6;
+}
+
+input.search-task-in[type="search"] {
+    min-width: 0;
+    width: 260px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    outline: none;
+}
+
+input.search-task-in[type="search"]::placeholder {
+    color: #a8a8a8;
+}
+
+button.search-task-button {
+    width: 36px;
+    height: 36px;
+    margin: 0 8px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent url('/assets/images/search-bord.png') center / 20px no-repeat;
+    font-size: 0;
+    cursor: pointer;
+}
+
+button.search-task-button:hover {
+    background-image: url('/assets/images/search-bord-blue.png');
+}
+
+button.add-task-button {
+    flex-shrink: 0;
+    width: 160px;
+    height: 56px;
+    padding: 0 12px;
+    color: white;
+    font-size: 21px;
+    background-color: #2a3647;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.add-task-button:hover {
+    background-color: #29abe2;
+    box-shadow: 0 4px 4px #00000025;
+}
+
+.add-task-new-button {
+    display: none;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent url('/assets/images/mobile_addtask_black.png') center / contain no-repeat;
+    cursor: pointer;
+}
+
+.add-task-new-button:hover {
+    background-image: url('/assets/images/mobile_addtask_blue.png');
+}
+
+.board-body-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.single-task-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 252px;
+    flex-shrink: 0;
+}
+
+.place-bord-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 252px;
+    margin-bottom: 8px;
+    padding: 16px 0
+}
+
+h2.single-task-header {
+    margin: 0;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.style-task-button {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent url('/assets/images/button_plus.png') center / contain no-repeat;
+    cursor: pointer;
+}
+
+.style-task-button:hover {
+    background-image: url('/assets/images/button_plus_blue.png');
+}
+
+.single-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    gap: 8px;
+}
+
+/* Styling for dynamically rendered task cards (later component). */
+.todo-task-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 268px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: white;
+    box-shadow: 0 0 8px #00000012;
+    cursor: pointer;
+}
+
+.todo-task-container:hover {
+    background-color: #e7fffe;
+}
+
+.empty-task-place {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 252px;
+    height: 48px;
+    box-sizing: border-box;
+    background-color: #e7e7e7;
+    border: 1px dashed #a8a8a8;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 1650px) {
+    main.board {
+        margin-left: 252px;
+        margin-right: 32px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .board-body-task {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .single-task-head {
+        align-items: stretch;
+    }
+
+    .single-task {
+        flex-direction: row;
+        align-items: flex-start;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .todo-task-container {
+        flex: 0 0 268px;
+    }
+
+    .empty-task-place {
+        max-width: 392px;
+    }
+}
+
+@media (max-width: 1300px) {
+    main.board {
+        margin-left: 132px;
+    }
+}
+
+@media (max-width: 1030px) {
+    main.board {
+        margin-left: 48px;
+        margin-bottom: 120px;
+        /* mobile bottom sidebar */
+    }
+}
+
+@media (max-width: 850px) {
+    .board-head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .place-search-task {
+        width: 100%;
+    }
+
+    form.search-task-tag {
+        flex: 1;
+    }
+
+    input.search-task-in[type="search"] {
+        width: 100%;
+    }
+
+    button.add-task-button {
+        display: none;
+    }
+
+    .add-task-new-button {
+        display: block;
+    }
+}
+
+@media (max-width: 700px) {
+    main.board {
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 110px;
+    }
+}
+
+@media (max-width: 450px) {
+    h1.board {
+        font-size: 47px;
+    }
+
+    h2.single-task-header {
+        font-size: 23px;
+    }
+}

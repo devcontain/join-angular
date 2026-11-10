@@ -1,1 +1,44 @@
-<p>contacts works!</p>
+<main class="contacts">
+    <div class="contact-list-box">
+        <div class="add-contact-button-box">
+            <button type="button">
+                <span>Add new contact</span>
+                <img src="assets/images/person_add.svg" alt="" />
+            </button>
+        </div>
+
+        <div id="contact-list"></div>
+    </div>
+
+    <div class="contact-detail">
+        <div class="contact-detail-head-wrapper">
+            <div class="contact-detail-head">
+                <h1>Contacts</h1>
+
+                <div class="seperator-vertical-blue"></div>
+
+                <div>
+                    <span>Better with a team</span>
+                </div>
+
+                <div class="seperator-horizontal-blue"></div>
+            </div>
+
+            <button type="button" class="go-back-button dnone" aria-label="Back to contacts">
+                <img src="assets/images/arrow_left.svg" alt="" />
+            </button>
+        </div>
+
+        <div class="contact-detail-box" id="contact-detail-box"></div>
+    </div>
+
+    <div class="open-menu-button-box dnone">
+        <button type="button" aria-label="Contact options">
+            <img src="assets/images/more_vert.svg" alt="" />
+        </button>
+    </div>
+
+    <div id="contact-added-notification">
+        <span>Contact successfully created</span>
+    </div>
+</main>

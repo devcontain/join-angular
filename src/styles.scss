@@ -1,9 +1,14 @@
+body:has(.cdk-drag-dragging),
+body:has(.cdk-drag-dragging) * {
+    cursor: grabbing !important;
+}
+
 .cdk-drag-preview {
     opacity: 1 !important;
     transition: none !important;
 }
 
-.cdk-drag-preview > .todo-task-container {
+.cdk-drag-preview>.todo-task-container {
     transform: rotate(20deg);
     transform-origin: center;
 }
@@ -12,5 +17,4 @@
     opacity: 0.3;
     border: 2px dashed #A8A8A8;
     border-radius: 24px;
-    cursor: grabbing;
 }

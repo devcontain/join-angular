@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-help',
   styleUrl: './help.scss',
   templateUrl: './help.html',
 })
-export class Help {}
+export class Help { }

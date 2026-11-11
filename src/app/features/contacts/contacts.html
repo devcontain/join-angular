@@ -7,7 +7,33 @@
             </button>
         </div>
 
-        <div id="contact-list"></div>
+        <div id="contact-list">
+            @for (contact of contactService.sortedContacts(); track $index) {
+            @if ($first || contact.firstname.charAt(0).toUpperCase() !== contactService.sortedContacts()[$index -
+            1].firstname.charAt(0).toUpperCase()) {
+            <div class="contact-separator">
+                {{ contact.firstname.charAt(0).toUpperCase() }}
+            </div>
+            }
+
+            <button type="button" class="contact-card" [class.selected]="selectedContact() === contact"
+                (click)="selectContact(contact)">
+                <div class="contact-avatar" [style.background-color]="contact.color">
+                    {{ contact.firstname.charAt(0) }}{{ contact.lastname.charAt(0) }}
+                </div>
+
+                <div class="contact-info">
+                    <span class="profile-fullname">
+                        {{ contact.firstname }} {{ contact.lastname }}
+                    </span>
+
+                    <span class="contact-email">
+                        {{ contact.email }}
+                    </span>
+                </div>
+            </button>
+            }
+        </div>
     </div>
 
     <div class="contact-detail">
@@ -29,7 +55,45 @@
             </button>
         </div>
 
-        <div class="contact-detail-box" id="contact-detail-box"></div>
+        <div class="contact-detail-box" id="contact-detail-box">
+            @if (selectedContact(); as contact) {
+            <div class="contact-detail-profile">
+                <div class="contact-avatar" [style.background-color]="contact.color">
+                    {{ contact.firstname.charAt(0) }}{{ contact.lastname.charAt(0) }}
+                </div>
+
+                <div class="contact-detail-name">
+                    <h2>{{ contact.firstname }} {{ contact.lastname }}</h2>
+
+                    <div class="profile-buttons">
+                        <button type="button">
+                            <img src="assets/images/edit.svg" alt="" />
+                            <span>Edit</span>
+                        </button>
+
+                        <button type="button">
+                            <img src="assets/images/delete.svg" alt="" />
+                            <span>Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Contact Information</h3>
+
+            <div class="contact-detail-information">
+                <strong>Email</strong>
+                <a [href]="'mailto:' + contact.email">
+                    {{ contact.email }}
+                </a>
+
+                <strong>Phone</strong>
+                <a [href]="'tel:' + contact.phone">
+                    {{ contact.phone }}
+                </a>
+            </div>
+            }
+        </div>
     </div>
 
     <div class="open-menu-button-box dnone">

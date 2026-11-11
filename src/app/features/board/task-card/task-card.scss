@@ -1,0 +1,163 @@
+.todo-task-container {
+    max-width: 236px;
+    min-width: 236px;
+    border-radius: 24px;
+    padding: 16px;
+    margin: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 8px 8px #00000009;
+    transition: background-color 0.1s, rotate 0.1s;
+    cursor: grab;
+}
+
+.todo-task-container:hover {
+    rotate: 20deg;
+    cursor: pointer;
+}
+
+.todo-task-container:active {
+    cursor: grabbing;
+}
+
+.task-drag-wrapper:active {
+    width: fit-content;
+}
+
+.mobile-move-place {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.collect-category {
+    display: flex;
+    height: 27px;
+}
+
+.user-story {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    padding: 4px 16px;
+    background-color: #0038FF;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0;
+}
+
+.technical-task {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    padding: 4px 16px;
+    background-color: #1FD7C1;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0;
+}
+
+.bord-title {
+    padding-top: 24px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    word-break: break-word;
+}
+
+.bord-descript-max-height {
+    max-height: 100px;
+    overflow: auto;
+}
+
+.bord-descript {
+    color: #A8A8A8;
+}
+
+.place-task-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.collect-subtask {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 24px;
+}
+
+.progress-bar {
+    background-color: #F4F4F4;
+    width: 128px;
+    border-radius: 8px;
+    height: 20px;
+}
+
+.progressbar {
+    background-color: #4589FF;
+    height: 20px;
+    border-radius: 8px;
+}
+
+.place-user-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.place-user {
+    display: flex;
+}
+
+.place-user .profile-badge {
+    margin-right: -18px;
+}
+
+.contact-name-place {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    border-radius: 42px;
+}
+
+.move-mobile {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 27px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.move-mobile:hover {
+    background-color: #29ABE2;
+    cursor: pointer;
+}
+
+@media (max-width: 1400px) {
+    .todo-task-container:hover {
+        transform: rotate(3deg);
+    }
+
+    .move-mobile {
+        display: flex;
+    }
+}

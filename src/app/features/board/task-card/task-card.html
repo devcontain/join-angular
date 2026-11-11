@@ -1,0 +1,48 @@
+<div class="task-drag-wrapper" cdkDrag>
+    <div class="todo-task-container">
+        <div class="mobile-move-place">
+            <div class="collect-category">
+                <p [class.user-story]="task().category === 'User Story'"
+                    [class.technical-task]="task().category === 'Technical Task'">
+                    {{ task().category }}
+                </p>
+            </div>
+
+            <button type="button" class="move-mobile">
+                move
+            </button>
+        </div>
+
+        <h3 class="bord-title">{{ task().title }}</h3>
+
+        <div class="bord-descript-max-height">
+            <span class="bord-descript">{{ task().description }}</span>
+        </div>
+
+        <div class="place-task-progress">
+            @if (task().subtasks.length > 0) {
+            <div class="collect-subtask">
+                <div class="progress-bar">
+                    <div class="progressbar"></div>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="place-user-status">
+            <div class="place-user">
+                @for (contact of task().contacts; track contact.id) {
+                <div class="contact-name-place">
+                    <span class="profile-badge" [style.background-color]="contact.color">
+                        {{ contact.firstname.charAt(0) }}{{ contact.lastname.charAt(0) }}
+                    </span>
+                </div>
+                }
+            </div>
+
+            <div class="low-image">
+                <img [src]="'/assets/images/' + task().prio + '.png'" [alt]="task().prio">
+            </div>
+        </div>
+    </div>
+</div>

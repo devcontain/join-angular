@@ -20,16 +20,22 @@
         </div>
     </section>
 
-
-    <section class="board-body-task">
+    <section class="board-body-task" cdkDropListGroup>
         <div class="single-task-head">
             <div class="place-bord-buttons">
                 <h2 class="single-task-header">To do</h2>
                 <button type="button" class="style-task-button" aria-label="Add task to To do"></button>
             </div>
 
-            <div class="single-task" id="to_do_place">
+            <div class="single-task" id="to_do_place" cdkDropList [cdkDropListData]="taskservice.todo()"
+                (cdkDropListDropped)="onTaskDrop($event)">
+
+                @for (task of taskservice.todo(); track task.id) {
+                <app-task-card [task]="task" />
+                } @empty {
                 <div class="empty-task-place">No tasks To do</div>
+                }
+
             </div>
         </div>
 
@@ -39,8 +45,14 @@
                 <button type="button" class="style-task-button" aria-label="Add task to In progress"></button>
             </div>
 
-            <div class="single-task" id="in_progress_place">
+            <div class="single-task" id="in_progress_place" cdkDropList
+                [cdkDropListData]="taskservice.tasksinprogress()" (cdkDropListDropped)="onTaskDrop($event)">
+
+                @for (task of taskservice.tasksinprogress(); track task.id) {
+                <app-task-card [task]="task" />
+                } @empty {
                 <div class="empty-task-place">No tasks In progress</div>
+                }
             </div>
         </div>
 
@@ -50,8 +62,14 @@
                 <button type="button" class="style-task-button" aria-label="Add task to Await feedback"></button>
             </div>
 
-            <div class="single-task" id="await_feedback_place">
+            <div class="single-task" id="await_feedback_place" cdkDropList
+                [cdkDropListData]="taskservice.awaitingfeedback()" (cdkDropListDropped)="onTaskDrop($event)">
+
+                @for (task of taskservice.awaitingfeedback(); track task.id) {
+                <app-task-card [task]="task" />
+                } @empty {
                 <div class="empty-task-place">No tasks Await feedback</div>
+                }
             </div>
         </div>
 
@@ -60,8 +78,14 @@
                 <h2 class="single-task-header">Done</h2>
             </div>
 
-            <div class="single-task" id="done_place">
+            <div class="single-task" id="done_place" cdkDropList [cdkDropListData]="taskservice.done()"
+                (cdkDropListDropped)="onTaskDrop($event)">
+
+                @for (task of taskservice.done(); track task.id) {
+                <app-task-card [task]="task" />
+                } @empty {
                 <div class="empty-task-place">No tasks Done</div>
+                }
             </div>
         </div>
     </section>

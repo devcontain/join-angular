@@ -1,0 +1,234 @@
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.task-modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.task-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 525px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 48px);
+    padding: 48px 40px;
+    border-radius: 30px;
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.task-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.task-category {
+    padding: 4px 16px;
+    border-radius: 8px;
+    background: #1fd7c1;
+    color: #fff;
+    font-size: 16px;
+}
+
+.close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+        background: #eeeeee;
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.task-modal-content {
+    flex: 1;
+    min-height: 0;
+    margin-top: 32px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #a8a8a8 transparent;
+
+    h1 {
+        margin: 0 0 24px;
+        font-size: 61px;
+        font-weight: 700;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+    }
+}
+
+.task-description {
+    margin: 0 0 24px;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.task-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    font-size: 20px;
+
+    >span:first-child {
+        color: #42526e;
+    }
+}
+
+.task-priority {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-assigned,
+.task-subtasks {
+    margin-bottom: 24px;
+
+    >span {
+        display: block;
+        margin-bottom: 16px;
+        color: #42526e;
+        font-size: 20px;
+    }
+}
+
+.assigned-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.assigned-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 8px;
+    font-size: 16px;
+}
+
+.contact-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #6e52ff;
+    color: #fff;
+    font-size: 12px;
+}
+
+.task-subtasks {
+    margin-bottom: 0;
+}
+
+.subtask {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: fit-content;
+    padding: 4px 8px 4px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+        background: #eeeeee;
+    }
+
+    input {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        cursor: pointer;
+        accent-color: #2a3647;
+    }
+}
+
+.task-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-top: 24px;
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px;
+        border: none;
+        background: transparent;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            color: #29abe2;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.separator {
+    width: 1px;
+    height: 24px;
+    background: #d1d1d1;
+}
+
+@media (max-width: 600px) {
+    .task-modal {
+        width: calc(100vw - 32px);
+        max-height: calc(100dvh - 32px);
+        padding: 32px 24px;
+    }
+
+    .task-modal-content {
+        margin-top: 24px;
+
+        h1 {
+            font-size: clamp(32px, 8vw, 48px);
+        }
+    }
+
+    .task-description,
+    .task-info,
+    .task-assigned>span,
+    .task-subtasks>span {
+        font-size: 16px;
+    }
+
+    .task-modal-footer {
+        padding-top: 16px;
+    }
+}

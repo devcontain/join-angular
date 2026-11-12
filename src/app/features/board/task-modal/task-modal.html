@@ -1,0 +1,70 @@
+<div class="task-modal-overlay" (click)="closeModal()">
+    <div class="task-modal" role="dialog" aria-modal="true" aria-labelledby="task-title"
+        (click)="$event.stopPropagation()">
+        <div class="task-modal-header">
+            <span class="task-category">{{ task().category }}</span>
+            <button type="button" class="close-button" aria-label="Close task" (click)="closeModal()">
+                <img src="assets/images/close.png" alt="" />
+            </button>
+        </div>
+
+        <div class="task-modal-content">
+            <h1 id="task-title">{{ task().title }}</h1>
+
+            <p class="task-description">{{ task().description }}</p>
+
+            <div class="task-info">
+                <span>Due date:</span>
+                <span>{{ task().date }}</span>
+            </div>
+
+            <div class="task-info">
+                <span>Priority:</span>
+                <div class="task-priority">
+                    <span>{{ task().prio }}</span>
+                    <img [src]="'assets/images/' + task().prio + '.png'" alt="" />
+                </div>
+            </div>
+
+            <div class="task-assigned">
+                <span>Assigned To:</span>
+
+                <div class="assigned-contacts">
+                    @for (contact of task().contacts; track contact.id) {
+                    <div class="assigned-contact">
+                        <span class="contact-avatar" [style.backgroundColor]="contact.color">
+                            {{ contact.firstname.charAt(0) }}{{ contact.lastname.charAt(0) }}
+                        </span>
+                        <span>{{ contact.firstname }} {{ contact.lastname }}</span>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="task-subtasks">
+                <span>Subtasks:</span>
+
+                @for (subtask of task().subtasks; track subtask.id) {
+                <label class="subtask">
+                    <input type="checkbox" [checked]="subtask.isChecked" />
+                    <span>{{ subtask.name }}</span>
+                </label>
+                }
+            </div>
+        </div>
+
+        <div class="task-modal-footer">
+            <button type="button" (click)="deleteTask()">
+                <img src="assets/images/delete.svg" alt="" />
+                Delete
+            </button>
+
+            <span class="separator"></span>
+
+            <button type="button" (click)="editTask()">
+                <img src="assets/images/edit.svg" alt="" />
+                Edit
+            </button>
+        </div>
+    </div>
+</div>

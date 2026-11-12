@@ -31,7 +31,7 @@
                 (cdkDropListDropped)="onTaskDrop($event)">
 
                 @for (task of taskservice.todo(); track task.id) {
-                <app-task-card [task]="task" />
+                <app-task-card [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks To do</div>
                 }
@@ -49,7 +49,7 @@
                 [cdkDropListData]="taskservice.tasksinprogress()" (cdkDropListDropped)="onTaskDrop($event)">
 
                 @for (task of taskservice.tasksinprogress(); track task.id) {
-                <app-task-card [task]="task" />
+                <app-task-card [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks In progress</div>
                 }
@@ -66,7 +66,7 @@
                 [cdkDropListData]="taskservice.awaitingfeedback()" (cdkDropListDropped)="onTaskDrop($event)">
 
                 @for (task of taskservice.awaitingfeedback(); track task.id) {
-                <app-task-card [task]="task" />
+                <app-task-card [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks Await feedback</div>
                 }
@@ -82,7 +82,7 @@
                 (cdkDropListDropped)="onTaskDrop($event)">
 
                 @for (task of taskservice.done(); track task.id) {
-                <app-task-card [task]="task" />
+                <app-task-card [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks Done</div>
                 }
@@ -91,3 +91,7 @@
     </section>
 
 </main>
+
+@if (selectedTask(); as task) {
+<app-task-modal [task]="task" (closed)="closeTask()" (delete)="deleteTask($event)" />
+}

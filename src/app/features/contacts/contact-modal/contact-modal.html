@@ -1,0 +1,56 @@
+<div class="overlay">
+    <section class="overlay-box">
+        <div class="overlay-box-head">
+            <h1>Edit contact</h1>
+            <div class="separator-horizontal-blue"></div>
+        </div>
+
+        <div class="overlay-box-body">
+            <button class="close-overlay-box" type="button" aria-label="Close" (click)="closeModal()">
+                <img src="assets/images/close.svg" alt="" />
+            </button>
+
+            <div class="overlay-body-content">
+                <div class="profile-badge-big-box">
+                    <div class="profile-badge-big">
+                        {{ contact().firstname.charAt(0).toUpperCase() }}{{ contact().lastname.charAt(0).toUpperCase()
+                        }}
+                    </div>
+                </div>
+
+                <form class="edit-contact-form-box">
+                    <div class="input-with-img-wrapper">
+                        <input class="styled-input edit-contact-input focus-blue" type="text" name="name"
+                            placeholder="Name" aria-label="Name"
+                            [value]="contact().firstname + ' ' + contact().lastname" required />
+                        <img src="assets/images/person.svg" alt="" />
+                    </div>
+
+                    <div class="input-with-img-wrapper">
+                        <input class="styled-input edit-contact-input focus-blue" type="email" name="email"
+                            placeholder="Email" aria-label="Email" [value]="contact().email" required />
+                        <img src="assets/images/mail.svg" alt="" />
+                    </div>
+
+                    <div class="input-with-img-wrapper">
+
+                        <input class="styled-input edit-contact-input focus-blue" type="tel" name="phone"
+                            placeholder="Phone" aria-label="Phone" [value]="contact().phone" required />
+                        <img src="assets/images/call.svg" alt="" />
+                    </div>
+
+                    <div class="edit-contact-form-buttons">
+                        <button type="button" class="white-button">
+                            <span>Delete</span>
+                        </button>
+
+                        <button type="submit" class="blue-button">
+                            <span>Save</span>
+                            <img src="assets/images/check.svg" alt="" />
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

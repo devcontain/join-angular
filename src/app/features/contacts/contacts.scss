@@ -1,3 +1,11 @@
+:host {
+    app-contact-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+    }
+}
+
 .dnone {
     display: none !important;
 }
@@ -9,7 +17,7 @@ main.contacts {
     display: flex;
     width: calc(100% - 223px);
     height: calc(100vh - 102px);
-    overflow: hidden;
+    /*     overflow: hidden; */
     font-size: 20px;
 }
 

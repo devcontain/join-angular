@@ -35,7 +35,8 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 440px;
+        flex: 1 1 0;
+        max-width: 440px;
         min-width: 0;
         gap: 20px;
     }
@@ -524,10 +525,9 @@ textarea::placeholder {
     }
 }
 
-/* Responsiv: ursprüngliche Breakpoints 1200 / 1030 / 700 / 450 px.
-   Die Elternkomponenten bestimmen Sidebar-Abstände und Dialogbreite. */
-@media (max-width: 1200px) {
+@media (max-width: 1030px) {
     .input-wrapper {
+        align-items: flex-start;
         flex-direction: column;
         gap: 20px;
         min-height: 0;
@@ -537,7 +537,9 @@ textarea::placeholder {
         }
 
         .input-box {
-            width: min(440px, 100%);
+            flex: 0 1 auto;
+            width: 100%;
+            max-width: 440px;
         }
     }
 }

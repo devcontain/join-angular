@@ -327,6 +327,45 @@
         animation-iteration-count: 1
     }
 
+    .summary-tasks-flex {
+        margin-left: 0;
+    }
+
+    .summary-tasks {
+        margin-right: 0px;
+    }
+
+    .summary-join-360 {
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: normal;
+        align-self: center;
+        height: 124px;
+        width: 100%;
+        max-width: 560px;
+
+        h1 {
+            margin: 0px;
+        }
+
+        p {
+            margin: 0px;
+        }
+    }
+
+    .summary-spacer {
+        display: none;
+    }
+
+    .summary-spacer-handy {
+        display: block;
+        width: 140px;
+        border: 2px solid;
+        border-color: #29ABE2;
+        border-radius: 4px;
+        margin-top: 16px;
+    }
+
     @keyframes handy-welcome {
         to {
             opacity: 0;
@@ -341,18 +380,15 @@
     }
 
     .summary-join-360 {
-        flex-direction: column;
-        align-items: normal;
         height: 104px;
-        width: 250px;
+        width: 100%;
+        max-width: 396px;
 
         h1 {
-            margin: 0px;
             font-size: 47px;
         }
 
         p {
-            margin: 0px;
             font-size: 20px;
         }
     }
@@ -496,6 +532,10 @@
         margin-top: 40px;
         width: 310px;
         height: 384px;
+    }
+
+    .summary-join-360 {
+        max-width: 310px;
     }
 
     .summary-todo-done {

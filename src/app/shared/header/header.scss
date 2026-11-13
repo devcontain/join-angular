@@ -14,7 +14,7 @@
 
     span {
         font-size: 20px;
-        margin-left: 348px;
+        margin-left: var(--content-left);
     }
 }
 
@@ -59,23 +59,19 @@
     }
 }
 
-@media only screen and (max-width: 1300px) {
+/* @media only screen and (max-width: 1300px) {
     .menu {
         span {
             margin-left: 248px;
         }
     }
 }
-
+ */
 @media only screen and (max-width: 1030px) {
     .menu {
         img {
             width: 64px;
             margin-left: 40px;
-        }
-
-        span {
-            margin-left: 0;
         }
 
         .menu-help-img img {

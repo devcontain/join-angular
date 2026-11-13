@@ -1,6 +1,7 @@
 .summary-margin {
-    margin-left: 328px;
-    margin-top: 206px;
+    margin-left: var(--content-left);
+    margin-top: var(--content-top);
+    margin-right: var(--content-right);
     color: black;
 }
 
@@ -306,36 +307,11 @@
     }
 }
 
-@media only screen and (max-width: 1300px) {
-    .summary-margin {
-        margin-left: 234px;
-    }
-
-    .summary-welcome {
-        h2 {
-            font-size: 32px;
-        }
-
-        h1 {
-            font-size: 48px;
-        }
-    }
-
-    .summary-tasks {
-        margin-right: 30px;
-    }
-}
-
 @media only screen and (max-width: 1030px) {
     .summary-margin {
-        margin-left: 0px;
-        margin-bottom: 120px;
-        margin-top: 128px;
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
     }
 
     .summary-welcome {
@@ -365,7 +341,6 @@
     }
 
     .summary-join-360 {
-        margin-left: 10%;
         flex-direction: column;
         align-items: normal;
         height: 104px;
@@ -396,11 +371,9 @@
     }
 
     .summary-tasks-flex {
-        margin-left: 10%;
         margin-top: 40px;
         width: 396px;
         height: 384px;
-
     }
 
     .summary-tasks {
@@ -417,7 +390,6 @@
         img {
             width: 40px;
             height: 40px;
-
         }
 
         h3 {
@@ -452,7 +424,6 @@
 
     .summary-urgent {
         margin-left: 56px;
-
         margin-right: 20px;
 
         h3 {
@@ -462,7 +433,6 @@
         span {
             font-size: 14px;
         }
-
     }
 
     .summary-urgent-flex:hover {
@@ -471,7 +441,6 @@
         transition: 0.1s;
         background-color: #2A3647;
         color: white;
-
     }
 
     .summary-urgent-spacer {
@@ -523,20 +492,10 @@
 }
 
 @media only screen and (max-width: 500px) {
-    .summary-join-360 {
-        margin-left: 2%;
-    }
-
     .summary-tasks-flex {
-        margin-left: 2%;
         margin-top: 40px;
         width: 310px;
         height: 384px;
-
-    }
-
-    .summary-margin {
-        margin-top: 100px;
     }
 
     .summary-todo-done {
@@ -571,14 +530,13 @@
         span {
             font-size: 14px;
         }
-
     }
 
     .summary-upcoming-deadline {
         margin-right: 24px;
 
         h3 {
-            margin: 0px
+            margin: 0px;
         }
     }
 

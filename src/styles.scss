@@ -3,6 +3,16 @@ body:has(.cdk-drag-dragging) * {
     cursor: grabbing !important;
 }
 
+body {
+    margin: 0;
+}
+
+:root {
+    --content-left: 328px;
+    --content-top: 150px;
+    --content-right: 48px;
+}
+
 .cdk-drag-preview {
     opacity: 1 !important;
     transition: none !important;
@@ -17,4 +27,24 @@ body:has(.cdk-drag-dragging) * {
     opacity: 0.3;
     border: 2px dashed #A8A8A8;
     border-radius: 24px;
+}
+
+@media (max-width: 1300px) {
+    :root {
+        --content-left: 132px;
+    }
+}
+
+@media (max-width: 1030px) {
+    :root {
+        --content-left: 48px;
+    }
+}
+
+@media (max-width: 700px) {
+    :root {
+        --content-left: 16px;
+        --content-top: 110px;
+        --content-right: 16px;
+    }
 }

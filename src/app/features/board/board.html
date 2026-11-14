@@ -27,15 +27,21 @@
                 <button type="button" class="style-task-button" aria-label="Add task to To do"></button>
             </div>
 
-            <div class="single-task" id="to_do_place" cdkDropList [cdkDropListData]="taskservice.todo()"
-                (cdkDropListDropped)="onTaskDrop($event)">
+            <div class="single-task" id="to_do_place" cdkDropList cdkScrollable [cdkDropListData]="taskservice.todo()"
+                (cdkDropListDropped)="onTaskDrop($event)"
+                [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
                 @for (task of taskservice.todo(); track task.id) {
-                <app-task-card [task]="task" (click)="openTask(task)" />
+                <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks To do</div>
                 }
 
+                <div class="task-drop-zone" aria-hidden="true"></div>
+            </div>
+
+            <div class="task-end-drop-zone" cdkDropList [cdkDropListData]="taskservice.todo()"
+                (cdkDropListDropped)="onTaskDropAtEnd($event)">
             </div>
         </div>
 
@@ -45,14 +51,21 @@
                 <button type="button" class="style-task-button" aria-label="Add task to In progress"></button>
             </div>
 
-            <div class="single-task" id="in_progress_place" cdkDropList
-                [cdkDropListData]="taskservice.tasksinprogress()" (cdkDropListDropped)="onTaskDrop($event)">
+            <div class="single-task" id="in_progress_place" cdkDropList cdkScrollable
+                [cdkDropListData]="taskservice.tasksinprogress()" (cdkDropListDropped)="onTaskDrop($event)"
+                [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
                 @for (task of taskservice.tasksinprogress(); track task.id) {
-                <app-task-card [task]="task" (click)="openTask(task)" />
+                <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks In progress</div>
                 }
+
+                <div class="task-drop-zone" aria-hidden="true"></div>
+            </div>
+
+            <div class="task-end-drop-zone" cdkDropList [cdkDropListData]="taskservice.tasksinprogress()"
+                (cdkDropListDropped)="onTaskDropAtEnd($event)">
             </div>
         </div>
 
@@ -62,14 +75,21 @@
                 <button type="button" class="style-task-button" aria-label="Add task to Await feedback"></button>
             </div>
 
-            <div class="single-task" id="await_feedback_place" cdkDropList
-                [cdkDropListData]="taskservice.awaitingfeedback()" (cdkDropListDropped)="onTaskDrop($event)">
+            <div class="single-task" id="await_feedback_place" cdkDropList cdkScrollable
+                [cdkDropListData]="taskservice.awaitingfeedback()" (cdkDropListDropped)="onTaskDrop($event)"
+                [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
                 @for (task of taskservice.awaitingfeedback(); track task.id) {
-                <app-task-card [task]="task" (click)="openTask(task)" />
+                <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks Await feedback</div>
                 }
+
+                <div class="task-drop-zone" aria-hidden="true"></div>
+            </div>
+
+            <div class="task-end-drop-zone" cdkDropList [cdkDropListData]="taskservice.awaitingfeedback()"
+                (cdkDropListDropped)="onTaskDropAtEnd($event)">
             </div>
         </div>
 
@@ -78,14 +98,20 @@
                 <h2 class="single-task-header">Done</h2>
             </div>
 
-            <div class="single-task" id="done_place" cdkDropList [cdkDropListData]="taskservice.done()"
-                (cdkDropListDropped)="onTaskDrop($event)">
+            <div class="single-task" id="done_place" cdkDropList cdkScrollable [cdkDropListData]="taskservice.done()"
+                (cdkDropListDropped)="onTaskDrop($event)"
+                [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
                 @for (task of taskservice.done(); track task.id) {
-                <app-task-card [task]="task" (click)="openTask(task)" />
+                <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks Done</div>
                 }
+
+            </div>
+
+            <div class="task-end-drop-zone" cdkDropList [cdkDropListData]="taskservice.done()"
+                (cdkDropListDropped)="onTaskDropAtEnd($event)">
             </div>
         </div>
     </section>

@@ -3,11 +3,26 @@
 }
 
 main.board {
-    margin-top: 150px;
-    margin-right: 64px;
+    margin-top: var(--content-top);
+    margin-right: var(--content-right);
     margin-bottom: 48px;
-    margin-left: 328px;
+    margin-left: var(--content-left);
     min-width: 0;
+}
+
+.task-end-drop-zone {
+    flex: 1;
+    width: 100%;
+    height: 180px;
+    border: 1px dashed;
+    border-style: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.task-end-drop-zone.cdk-drop-list-receiving {
+    border-color: #A8A8A8;
+    background-color: #f6f7f8;
 }
 
 .board-head {
@@ -113,14 +128,14 @@ button.add-task-button:hover {
 .board-body-task {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 16px;
 }
 
 .single-task-head {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 252px;
     flex-shrink: 0;
 }
@@ -129,7 +144,7 @@ button.add-task-button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 252px;
+    width: 100%;
     margin-bottom: 8px;
     padding: 16px 0
 }
@@ -160,7 +175,6 @@ h2.single-task-header {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 1200px;
     gap: 8px;
 }
 
@@ -193,14 +207,7 @@ h2.single-task-header {
     margin-bottom: 16px;
 }
 
-@media (max-width: 1650px) {
-    main.board {
-        margin-left: 252px;
-        margin-right: 32px;
-    }
-}
-
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
     .board-body-task {
         flex-direction: column;
         gap: 24px;
@@ -208,13 +215,21 @@ h2.single-task-header {
 
     .single-task-head {
         align-items: stretch;
+        width: 100%;
     }
 
     .single-task {
         flex-direction: row;
+        flex-wrap: nowrap;
         align-items: flex-start;
+/*         min-height: 240px; */
+        min-width: 0;
         overflow-x: auto;
         padding-bottom: 8px;
+    }
+
+    .single-task app-task-card {
+        flex: 0 0 auto;
     }
 
     .todo-task-container {
@@ -226,17 +241,9 @@ h2.single-task-header {
     }
 }
 
-@media (max-width: 1300px) {
-    main.board {
-        margin-left: 132px;
-    }
-}
-
 @media (max-width: 1030px) {
     main.board {
-        margin-left: 48px;
         margin-bottom: 120px;
-        /* mobile bottom sidebar */
     }
 }
 
@@ -264,14 +271,6 @@ h2.single-task-header {
 
     .add-task-new-button {
         display: block;
-    }
-}
-
-@media (max-width: 700px) {
-    main.board {
-        margin-left: 16px;
-        margin-right: 16px;
-        margin-top: 110px;
     }
 }
 

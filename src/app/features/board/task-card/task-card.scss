@@ -6,6 +6,7 @@
     margin: 8px;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 8px 8px #00000009;
+    box-sizing: border-box;
     transition: background-color 0.1s, rotate 0.1s;
     cursor: grab;
 }
@@ -19,8 +20,10 @@
     cursor: grabbing;
 }
 
-.task-drag-wrapper:active {
+.task-drag-wrapper {
     width: fit-content;
+    display: flex;
+    justify-content: center;
 }
 
 .mobile-move-place {
@@ -152,11 +155,13 @@
     cursor: pointer;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
     .todo-task-container:hover {
-        transform: rotate(3deg);
+        rotate: 3deg;
     }
+}
 
+@media (max-width: 1400px) {
     .move-mobile {
         display: flex;
     }

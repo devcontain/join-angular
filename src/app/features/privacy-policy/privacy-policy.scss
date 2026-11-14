@@ -1,33 +1,41 @@
+.law {
+    position: relative;
+    margin-top: var(--content-top);
+    margin-right: var(--content-right);
+    margin-bottom: 200px;
+    margin-left: var(--content-left);
+    min-width: 0;
+}
+
 .place-law-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 56px;
+
+    img {
+        width: 21.33px;
+        height: 20.74px;
+    }
 }
 
 h1.legal-head {
     font-weight: 700;
     font-size: 61px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.legal-head {
+    font-weight: 700;
+    font-size: 61px;
     line-height: 73.2px;
-}
-
-.law {
-    margin-bottom: 200px !important;
-    position: relative;
-    margin-top: 206px;
-    margin-left: 290px;
-    margin-right: 64px;
-}
-
-.place-law-head img {
-    width: 21.33px;
-    height: 20.74px;
 }
 
 .arrow-style {
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 68px;
     width: 32px;
     height: 32px;
     border-radius: 42px;
@@ -36,48 +44,43 @@ h1.legal-head {
     background: transparent;
     cursor: pointer;
     transition: transform 0.1s ease;
-}
 
-.arrow-style:hover {
-    background-color: #EEEEEE;
-    transform: scale(1.175);
-}
-
-@media only screen and (max-width: 1300px) {
-    .law {
-        margin-top: 160px !important;
-        margin-left: 160px !important;
-        margin-right: 160px !important;
-        margin-bottom: 256px !important;
+    &:hover {
+        background-color: #EEEEEE;
+        transform: scale(1.175);
     }
 }
 
-@media only screen and (max-width: 1030px) {
+@media (max-width: 1300px) {
     .law {
-        margin-left: 16.5px !important;
-        margin-right: 16.5px !important;
-        margin-bottom: 356px !important;
+        margin-bottom: 256px;
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media (max-width: 1030px) {
     .law {
-        margin-top: 100px !important;
+        margin-bottom: 356px;
+    }
+}
+
+@media (max-width: 700px) {
+    .law {
+        margin-top: var(--content-top);
     }
 
     .legal-head {
-        font-size: 47px !important;
+        font-size: 47px;
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media (max-width: 450px) {
     .legal-head {
-        font-size: 46px !important;
+        font-size: 46px;
     }
 }
 
-@media only screen and (max-width: 400px) {
+@media (max-width: 400px) {
     .legal-head {
-        font-size: 34px !important;
+        font-size: 34px;
     }
 }

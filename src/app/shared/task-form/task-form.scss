@@ -16,7 +16,7 @@
     h1 {
         font-size: 61px;
         color: #000;
-        margin: 0 0 32px;
+        margin: 0 0 var(--content-heading-gap);
     }
 }
 
@@ -581,7 +581,6 @@ textarea::placeholder {
 
         h1 {
             font-size: 40px;
-            margin-bottom: 16px;
         }
     }
 

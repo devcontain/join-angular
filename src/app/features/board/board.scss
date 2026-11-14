@@ -29,7 +29,7 @@ main.board {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 56px;
+    margin-bottom: var(--content-heading-gap);
 }
 
 h1.board {
@@ -213,6 +213,14 @@ h2.single-task-header {
         gap: 24px;
     }
 
+    .place-bord-buttons {
+        justify-content: start;
+    }
+
+    .single-task-header {
+        padding-right: 24px;
+    }
+
     .single-task-head {
         align-items: stretch;
         width: 100%;
@@ -222,7 +230,7 @@ h2.single-task-header {
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: flex-start;
-/*         min-height: 240px; */
+        /*         min-height: 240px; */
         min-width: 0;
         overflow-x: auto;
         padding-bottom: 8px;
@@ -251,14 +259,19 @@ h2.single-task-header {
     .board-head {
         flex-direction: column;
         align-items: stretch;
+        gap: 24px;
+    }
+
+    .place-bord-header-botton {
+        justify-content: center;
     }
 
     .place-search-task {
         width: 100%;
     }
 
-    form.search-task-tag {
-        flex: 1;
+    .place-search-task {
+        justify-content: center;
     }
 
     input.search-task-in[type="search"] {

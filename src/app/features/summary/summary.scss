@@ -314,27 +314,6 @@
         align-items: center;
     }
 
-    .summary-welcome {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        background-color: white;
-        animation: handy-welcome 2s forwards;
-        animation-delay: 2s;
-        animation-iteration-count: 1
-    }
-
-    .summary-tasks-flex {
-        margin-left: 0;
-    }
-
-    .summary-tasks {
-        margin-right: 0px;
-    }
-
     .summary-join-360 {
         justify-content: flex-end;
         flex-direction: column;
@@ -366,6 +345,27 @@
         margin-top: 16px;
     }
 
+    .summary-tasks-flex {
+        margin-left: 0;
+    }
+
+    .summary-tasks {
+        margin-right: 0px;
+    }
+
+    .summary-welcome {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: white;
+        animation: handy-welcome 2s forwards;
+        animation-delay: 2s;
+        animation-iteration-count: 1
+    }
+
     @keyframes handy-welcome {
         to {
             opacity: 0;
@@ -375,10 +375,6 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .summary-upcoming-deadline {
-        margin-left: 20px;
-    }
-
     .summary-join-360 {
         height: 104px;
         width: 100%;
@@ -418,6 +414,11 @@
         margin: 0px;
     }
 
+    .summary-todo-done-flex {
+        height: 120px;
+        max-height: 120px;
+    }
+
     .summary-todo-done {
         width: 186px;
         height: 110px;
@@ -442,11 +443,6 @@
         height: 112px;
     }
 
-    .summary-todo-done-flex {
-        height: 120px;
-        max-height: 120px;
-    }
-
     .summary-urgent-flex {
         width: 396px;
         height: 110px;
@@ -456,6 +452,14 @@
             width: 40px;
             height: 40px;
         }
+    }
+
+    .summary-urgent-flex:hover {
+        margin-bottom: -5px;
+        height: 115px;
+        transition: 0.1s;
+        background-color: #2A3647;
+        color: white;
     }
 
     .summary-urgent {
@@ -471,16 +475,12 @@
         }
     }
 
-    .summary-urgent-flex:hover {
-        margin-bottom: -5px;
-        height: 115px;
-        transition: 0.1s;
-        background-color: #2A3647;
-        color: white;
-    }
-
     .summary-urgent-spacer {
         height: 68px;
+    }
+
+    .summary-upcoming-deadline {
+        margin-left: 20px;
     }
 
     .summary-upcoming-deadline {
@@ -528,14 +528,14 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .summary-join-360 {
+        max-width: 310px;
+    }
+
     .summary-tasks-flex {
         margin-top: 40px;
         width: 310px;
         height: 384px;
-    }
-
-    .summary-join-360 {
-        max-width: 310px;
     }
 
     .summary-todo-done {

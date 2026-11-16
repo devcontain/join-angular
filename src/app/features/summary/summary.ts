@@ -1,8 +1,9 @@
 import { Component, computed, inject } from '@angular/core';
 import { Task } from '../../core/services/task';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-summary',
   styleUrl: './summary.scss',
   templateUrl: './summary.html',

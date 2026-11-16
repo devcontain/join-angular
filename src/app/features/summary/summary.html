@@ -9,30 +9,30 @@
     <div class="summary-tasks-flex">
         <div class="summary-tasks">
             <div class="summary-todo-done-flex">
-                <a href="board.html" class="summary-todo-done">
+                <a routerLink="/board" class="summary-todo-done">
                     <img src="/assets/images/to_do_img.png" class="summary-img">
                     <img src="/assets/images/to_do_img_white.png" class="summary-img-hover">
                     <div class="summary-todo-done-numbers">
-                        <h3 id="summary_to_do">{{ todocount() }}</h3>
+                        <h3>{{ todocount() }}</h3>
                         <span>To-do</span>
                     </div>
                 </a>
 
-                <a href="board.html" class="summary-todo-done">
+                <a routerLink="/board" class="summary-todo-done">
                     <img src="/assets/images/done_img.png" class="summary-img">
                     <img src="/assets/images/dones_img_white.png" class="summary-img-hover">
                     <div class="summary-todo-done-numbers">
-                        <h3 id="summary_done">{{ donecount() }}</h3>
+                        <h3>{{ donecount() }}</h3>
                         <span>Done</span>
                     </div>
                 </a>
             </div>
 
-            <a href="board.html" class="summary-urgent-flex">
+            <a routerLink="/board" class="summary-urgent-flex">
                 <div class="summary-urgent">
                     <img src="assets/images/urgent_img.png">
                     <div class="summary-urgent-numbers">
-                        <h3 id="summary_urgent">{{ urgentcount() }}</h3>
+                        <h3>{{ urgentcount() }}</h3>
                         <span>Urgent</span>
                     </div>
                 </div>
@@ -40,32 +40,32 @@
                 <div class="summary-urgent-spacer"></div>
 
                 <div class="summary-upcoming-deadline">
-                    <h3 id="summary_deadline">{{ deadlineDateEn() }}</h3>
-                    <span id="summary_deadline_string">{{ deadlineText() }}</span>
+                    <h3>{{ deadlineDateEn() }}</h3>
+                    <span>{{ deadlineText() }}</span>
                 </div>
             </a>
 
             <div class="summary-board-progress-flex">
-                <a href="board.html" class="summary-board-progress summary-board-progressl">
-                    <h3 id="summary_in_board">{{ tasksInBoard() }}</h3>
+                <a routerLink="/board" class="summary-board-progress summary-board-progressl">
+                    <h3>{{ tasksInBoard() }}</h3>
                     <span>Tasks in <br> Board</span>
                 </a>
 
-                <a href="board.html" class="summary-board-progress">
-                    <h3 id="summary_progress">{{ progresscount() }}</h3>
+                <a routerLink="/board" class="summary-board-progress">
+                    <h3>{{ progresscount() }}</h3>
                     <span>Tasks in <br> Progress</span>
                 </a>
 
-                <a href="board.html" class="summary-board-progress summary-board-progressr">
-                    <h3 id="summary_feedback">{{ awaitcount() }}</h3>
+                <a routerLink="/board" class="summary-board-progress summary-board-progressr">
+                    <h3>{{ awaitcount() }}</h3>
                     <span>Awaiting <br> Feedback</span>
                 </a>
             </div>
         </div>
 
         <div class="summary-welcome">
-            <h2 id="summary_good_morning">{{ greeting }}</h2>
-            <h1 id="summary_name"></h1>
+            <h2>{{ greeting }}</h2>
+            <h1></h1>
         </div>
     </div>
 </div>

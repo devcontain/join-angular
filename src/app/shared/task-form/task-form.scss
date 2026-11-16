@@ -23,6 +23,7 @@
 .add-task-form-section {
     display: flex;
     flex-direction: column;
+    max-width: 978px;
 }
 
 .input-wrapper {
@@ -113,7 +114,7 @@ textarea::placeholder {
     color: #d1d1d1;
 }
 
-#add_task_description {
+.add-task-description {
     .textarea-wrapper {
         position: relative;
         display: flex;
@@ -148,12 +149,12 @@ textarea::placeholder {
     }
 }
 
-#add_task_assigned_to {
+.add-task-assigned-to {
     input::placeholder {
         color: black;
     }
 
-    #input_with_button_assigned_to {
+    .input-with-button-assigned-to {
         position: relative;
         z-index: 3;
     }
@@ -167,29 +168,28 @@ textarea::placeholder {
     }
 }
 
-#add_task_due_date {
-    .calendar-input {
-        position: absolute;
-        right: 18px;
-        color: transparent;
-        border: 0;
-        outline: none;
-        background: url('/assets/images/calendar.png') center no-repeat;
-        width: 22px;
-        height: 24px;
-        padding: 0;
-        z-index: 20;
-        cursor: pointer;
-    }
-
-    input[type='date']::-webkit-calendar-picker-indicator {
-        opacity: 0;
-        cursor: pointer;
-    }
+.calendar-input {
+    position: absolute;
+    right: 18px;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: url('/assets/images/calendar.png') center no-repeat;
+    width: 22px;
+    height: 24px;
+    padding: 0;
+    z-index: 20;
+    cursor: pointer;
 }
 
-.add_task_prio {
-    #prio-buttons {
+input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.add-task-prio {
+    .prio-buttons {
         display: flex;
         justify-content: space-between;
         gap: 8px;
@@ -245,26 +245,26 @@ textarea::placeholder {
             }
         }
 
-        #prio_urgent:checked+label {
+        .prio-urgent:checked+label {
             background-color: #ff3d00;
         }
 
-        #prio_medium:checked+label {
+        .prio-medium:checked+label {
             background-color: #ffa800;
         }
 
-        #prio_low:checked+label {
+        .prio-low:checked+label {
             background-color: #7ae229;
         }
     }
 }
 
-#add_task_category {
+.add-task-category {
     input::placeholder {
         color: black;
     }
 
-    #input_with_button_category {
+    .input-with-button-category {
         position: relative;
         z-index: 3;
     }
@@ -278,7 +278,7 @@ textarea::placeholder {
     }
 }
 
-#add_task_subtask {
+.add-task-subtask {
     .input-with-double-button {
         z-index: 35;
         display: flex;
@@ -297,7 +297,7 @@ textarea::placeholder {
         }
     }
 
-    #selected_subtasks {
+    .selected-subtasks {
         width: 100%;
         max-height: 160px;
         overflow-y: auto;
@@ -460,7 +460,7 @@ textarea::placeholder {
     border-radius: 50%;
 }
 
-#drop_down_category {
+.drop-down-category {
     .drop-down-category-entry {
         display: flex;
         align-items: center;
@@ -479,7 +479,7 @@ textarea::placeholder {
     }
 }
 
-#selected_contacts {
+.selected-contacts {
     width: 100%;
     max-height: 160px;
     overflow-y: auto;
@@ -489,7 +489,7 @@ textarea::placeholder {
     flex-wrap: wrap;
 }
 
-#task-added-notification {
+.task-added-notification {
     position: fixed;
     bottom: 50%;
     left: 50%;
@@ -544,7 +544,7 @@ textarea::placeholder {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .add-task h1 {
         font-size: 47px;
     }
@@ -557,7 +557,7 @@ textarea::placeholder {
         font-size: 16px;
     }
 
-    .add_task_prio #prio-buttons label {
+    .add-task-prio .prio-buttons label {
         font-size: 14px;
         height: 56px;
 
@@ -566,7 +566,7 @@ textarea::placeholder {
         }
     }
 
-    .add_task_prio #prio-buttons input:checked+label {
+    .add-task-prio .prio-buttons input:checked+label {
         font-size: 14px;
     }
 
@@ -589,11 +589,11 @@ textarea::placeholder {
     }
 
     .styled-input,
-    #add_task_description textarea {
+    .add-task-description textarea {
         font-size: 16px;
     }
 
-    .add_task_prio #prio-buttons label {
+    .add-task-prio .prio-buttons label {
         height: 40px;
         font-size: 12px;
 
@@ -603,7 +603,7 @@ textarea::placeholder {
         }
     }
 
-    .add_task_prio #prio-buttons input:checked+label {
+    .add-task-prio .prio-buttons input:checked+label {
         font-size: 12px;
     }
 

@@ -150,6 +150,9 @@ textarea::placeholder {
 }
 
 .add-task-assigned-to {
+    position: relative;
+    z-index: 30;
+
     input::placeholder {
         color: black;
     }
@@ -233,7 +236,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
             outline-offset: 2px;
         }
 
-        /* Ersetzt die frühere selectPrio()-Klassenänderung. */
         input:checked+label {
             color: white;
             font-size: 21px;
@@ -260,6 +262,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .add-task-category {
+    position: relative;
+
     input::placeholder {
         color: black;
     }
@@ -414,11 +418,14 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .drop-down {
-    position: relative;
+    position: absolute;
     background-color: white;
+    top: 100%;
+    left: 0;
+    z-index: 31;
     margin-top: -10px;
     padding-top: 16px;
-    max-height: 288px;
+    max-height: 280px;
     width: 100%;
     overflow-y: auto;
     border-radius: 0 0 10px 10px;
@@ -435,6 +442,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
     &:hover {
         background-color: #eee;
+        cursor: pointer;
+    }
+
+    &.selected {
+        background-color: #2a3647;
+        color: white;
     }
 
     .profile-info-box {
@@ -461,6 +474,14 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .drop-down-category {
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    border-radius: 0 0 10px 10px;
+
     .drop-down-category-entry {
         display: flex;
         align-items: center;
@@ -475,6 +496,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
         &:hover {
             background-color: #eee;
+            cursor: pointer;
         }
     }
 }

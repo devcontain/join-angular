@@ -17,20 +17,43 @@
                 <div class="add-task-description">
                     <h3>Description</h3>
                     <div class="textarea-wrapper">
-                        <textarea class="textarea focus-blue" placeholder="Enter a Description"
-                            name="add_task_description" spellcheck="false"></textarea>
+                        <textarea class="textarea focus-blue" placeholder="Enter a Description" spellcheck="false"
+                            name="description" [(ngModel)]="description"></textarea>
                     </div>
                 </div>
 
                 <div class="add-task-assigned-to">
                     <h3>Assigned to</h3>
                     <div class="input-with-button-wrapper">
-                        <input class="styled-input focus-blue" placeholder="Select contacts to assign" type="text" />
-                        <button type="button" class="dropdown-trigger">
+                        <input class="styled-input focus-blue" placeholder="Select contacts to assign" type="text"
+                            (focus)="assignedToDropdownOpen.set(true)" />
+                        <button type="button" class="dropdown-trigger"
+                            (click)="assignedToDropdownOpen.set(!assignedToDropdownOpen())">
                             <img src="assets/images/arrow_drop_down.png" alt="Select contacts" />
                         </button>
                     </div>
-                    <div class="drop-down dnone custom-scrollbar"></div>
+
+                    @if (assignedToDropdownOpen()) {
+                    <div class="drop-down custom-scrollbar">
+                        @for (contact of contactService.sortedContacts(); track contact.id) {
+                        <div class="contact-list-entry" [class.selected]="isContactSelected(contact.id)"
+                            (click)="toggleContact(contact.id)">
+
+                            <div class="profile-info-box">
+                                <span class="profile-badge" [style.background-color]="contact.color">
+                                    {{ contact.firstname.charAt(0) }}{{ contact.lastname.charAt(0) }}
+                                </span>
+                                <span>{{ contact.firstname }} {{ contact.lastname }}</span>
+                            </div>
+
+                            <img [src]="isContactSelected(contact.id)
+                                ? 'assets/images/check_button_checked.svg'
+                                : 'assets/images/check_button_unchecked.svg'" alt="Selection status" />
+                        </div>
+                        }
+                    </div>
+                    }
+
                     <div class="selected-contacts"></div>
                 </div>
             </section>
@@ -45,8 +68,8 @@
                     </div>
                     <div class="input-with-button-wrapper">
                         <input class="styled-input focus-blue" placeholder="dd/mm/yyyy" type="text" required
-                            pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" />
-                        <input class="calendar-input" type="date" />
+                            pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" name="dueDate" [(ngModel)]="dueDate" />
+                        <input class="calendar-input" type="date" #calendar (change)="onDateChange(calendar.value)" />
                     </div>
                     <span class="required-field dnone">This field is required</span>
                 </div>
@@ -54,19 +77,22 @@
                 <div class="add-task-prio">
                     <h3>Prio</h3>
                     <div class="prio-buttons">
-                        <input id="prio_urgent" class="prio-urgent" name="prio" type="radio" value="urgent" />
+                        <input id="prio_urgent" class="prio-urgent" name="prio" type="radio" value="urgent"
+                            [(ngModel)]="priority" />
                         <label for="prio_urgent">
                             <span>Urgent</span>
                             <img src="assets/images/urgent.svg" alt="" />
                         </label>
 
-                        <input id="prio_medium" class="prio-medium" name="prio" type="radio" value="medium" checked />
+                        <input id="prio_medium" class="prio-medium" name="prio" type="radio" value="medium"
+                            [(ngModel)]="priority" />
                         <label for="prio_medium">
                             <span>Medium</span>
                             <img src="assets/images/medium.svg" alt="" />
                         </label>
 
-                        <input id="prio_low" class="prio-low" name="prio" type="radio" value="low" />
+                        <input id="prio_low" class="prio-low" name="prio" type="radio" value="low"
+                            [(ngModel)]="priority" />
                         <label for="prio_low">
                             <span>Low</span>
                             <img src="assets/images/low.svg" alt="" />
@@ -80,14 +106,24 @@
                         <h3 style="color: #FF8190;">*</h3>
                     </div>
                     <div class="input-with-button-wrapper">
-                        <input class="styled-input focus-blue" placeholder="Select task category" required
-                            type="text" />
-                        <button type="button" class="dropdown-trigger">
+                        <input class="styled-input focus-blue" placeholder="Select task category" required type="text"
+                            name="category" [(ngModel)]="category" (focus)="categoryDropdownOpen.set(true)" />
+                        <button type="button" class="dropdown-trigger"
+                            (click)="categoryDropdownOpen.set(!categoryDropdownOpen())">
                             <img src="assets/images/arrow_drop_down.png" alt="Select category" />
                         </button>
                     </div>
                     <span class="required-field dnone">This field is required</span>
-                    <div class="drop-down dnone"></div>
+                    @if (categoryDropdownOpen()) {
+                    <div class="drop-down-category">
+                        @for (item of categories; track item) {
+                        <div class="drop-down-category-entry"
+                            (mousedown)="selectCategory(item); $event.preventDefault()">
+                            <span>{{ item }}</span>
+                        </div>
+                        }
+                    </div>
+                    }
                 </div>
 
                 <div class="add-task-subtask">

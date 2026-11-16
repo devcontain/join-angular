@@ -32,7 +32,7 @@
                 <div class="summary-urgent">
                     <img src="assets/images/urgent_img.png">
                     <div class="summary-urgent-numbers">
-                        <h3 id="summary_urgent">{{ todocount() }}</h3>
+                        <h3 id="summary_urgent">{{ urgentcount() }}</h3>
                         <span>Urgent</span>
                     </div>
                 </div>
@@ -40,14 +40,14 @@
                 <div class="summary-urgent-spacer"></div>
 
                 <div class="summary-upcoming-deadline">
-                    <h3 id="summary_deadline"></h3>
-                    <span id="summary_deadline_string">Upcoming Deadline</span>
+                    <h3 id="summary_deadline">{{ deadlineDateEn() }}</h3>
+                    <span id="summary_deadline_string">{{ deadlineText() }}</span>
                 </div>
             </a>
 
             <div class="summary-board-progress-flex">
                 <a href="board.html" class="summary-board-progress summary-board-progressl">
-                    <h3 id="summary_in_board">{{ todocount() }}</h3>
+                    <h3 id="summary_in_board">{{ tasksInBoard() }}</h3>
                     <span>Tasks in <br> Board</span>
                 </a>
 

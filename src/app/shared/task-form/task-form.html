@@ -53,8 +53,15 @@
                         }
                     </div>
                     }
-
-                    <div class="selected-contacts"></div>
+                    <div class="selected-contacts">
+                        @for (contact of contactService.sortedContacts(); track contact.id) {
+                        @if (isContactSelected(contact.id)) {
+                        <span class="profile-badge" [style.background-color]="contact.color">
+                            {{ contact.firstname.charAt(0) }}{{ contact.lastname.charAt(0) }}
+                        </span>
+                        }
+                        }
+                    </div>
                 </div>
             </section>
 
@@ -129,23 +136,50 @@
                 <div class="add-task-subtask">
                     <h3>Subtask</h3>
                     <div class="input-with-button-wrapper">
-                        <input class="styled-input focus-blue" placeholder="Add new subtask" type="text"
-                            maxlength="35" />
-                        <button type="button" class="add-subtask-button">
+
+                        <input class="styled-input focus-blue" placeholder="Add new subtask" type="text" maxlength="35"
+                            [value]="subtaskInput()" (input)="subtaskInput.set(subtaskField.value)"
+                            (focus)="subtaskInputActive.set(true)"
+                            (keydown.enter)="$event.preventDefault(); confirmSubtask()" #subtaskField />
+
+                        @if (!subtaskInputActive()) {
+                        <button type="button" class="add-subtask-button"
+                            (click)="subtaskInputActive.set(true); subtaskField.focus()">
                             <img src="assets/images/add.png" alt="Add subtask" />
                         </button>
+                        }
 
-                        <div class="input-with-double-button dnone">
-                            <button type="button" class="clear-subtask-button">
+                        @if (subtaskInputActive()) {
+                        <div class="input-with-double-button">
+                            <button type="button" class="clear-subtask-button" (click)="clearSubtaskInput()">
                                 <img src="assets/images/cross.svg" alt="Clear" />
                             </button>
                             <div class="separator-vertical"></div>
-                            <button type="button" class="confirm-subtask-button">
+                            <button type="button" class="confirm-subtask-button" (click)="confirmSubtask()">
                                 <img src="assets/images/check.svg" alt="Confirm" />
                             </button>
                         </div>
+                        }
                     </div>
-                    <div class="selected-subtasks"></div>
+
+
+                    <div class="selected-subtasks">
+                        @for (subtask of subtasks(); track $index) {
+                        <div class="subtask-entry">
+                            <span>{{ subtask }}</span>
+
+                            <div class="subtask-actions">
+                                <button type="button" (click)="editSubtask($index)">
+                                    <img src="assets/images/edit.svg" alt="Edit" />
+                                </button>
+                                <div class="separator-vertical"></div>
+                                <button type="button" (click)="deleteSubtask($index)">
+                                    <img src="assets/images/delete.svg" alt="Delete" />
+                                </button>
+                            </div>
+                        </div>
+                        }
+                    </div>
                 </div>
             </section>
         </div>

@@ -24,6 +24,12 @@ export class TaskForm {
   readonly assignedToDropdownOpen = signal(false);
   readonly selectedContacts = signal<number[]>([]);
 
+  readonly subtasks = signal<string[]>([]);
+  readonly subtaskInput = signal('');
+  readonly subtaskInputActive = signal(false);
+  readonly editingSubtaskIndex = signal<number | null>(null);
+  readonly editingSubtaskTitle = signal('');
+
   onDateChange(date: string): void {
     if (!date) return;
 
@@ -59,8 +65,53 @@ export class TaskForm {
     });
   }
 
-
   isContactSelected(id: number): boolean {
     return this.selectedContacts().includes(id);
+  }
+
+  confirmSubtask(): void {
+    const title = this.subtaskInput().trim();
+    if (!title) return;
+
+    this.subtasks.update(tasks => [...tasks, title]);
+    this.clearSubtaskInput();
+  }
+
+  editSubtask(index: number): void {
+    this.editingSubtaskIndex.set(index);
+    this.editingSubtaskTitle.set(this.subtasks()[index]);
+  }
+
+  saveEditedSubtask(): void {
+    const title = this.editingSubtaskTitle().trim();
+    const index = this.editingSubtaskIndex();
+
+    if (!title || index === null) return;
+
+    this.subtasks.update(tasks =>
+      tasks.map((task, i) => i === index ? title : task)
+    );
+
+    this.cancelEditSubtask();
+  }
+
+  cancelEditSubtask(): void {
+    this.editingSubtaskIndex.set(null);
+    this.editingSubtaskTitle.set('');
+  }
+
+  clearSubtaskInput(): void {
+    this.subtaskInput.set('');
+    this.subtaskInputActive.set(false);
+  }
+
+  deleteSubtask(index: number): void {
+    this.subtasks.update(tasks =>
+      tasks.filter((_, i) => i !== index)
+    );
+
+    if (this.editingSubtaskIndex() === index) {
+      this.clearSubtaskInput();
+    }
   }
 }

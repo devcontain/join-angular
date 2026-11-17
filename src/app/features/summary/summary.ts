@@ -2,6 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { Task } from '../../core/services/task';
 import { RouterLink } from '@angular/router';
 
+
 @Component({
   imports: [RouterLink],
   selector: 'app-summary',
@@ -65,7 +66,7 @@ export class Summary {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    if (deadline < today) return 'Overdue Deadline';
+    if (deadline < today) return 'Overdue';
 
     return 'Upcoming Deadline';
   });

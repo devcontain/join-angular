@@ -60,10 +60,17 @@
 
     .input-with-button-wrapper {
         position: relative;
-        display: flex;
-        align-items: center;
 
-        /* Im Angular-HTML sind dies jetzt Buttons statt <a>. */
+        .input-with-double-button {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         >button {
             display: flex;
             justify-content: center;
@@ -306,37 +313,49 @@ input[type='date']::-webkit-calendar-picker-indicator {
         max-height: 160px;
         overflow-y: auto;
 
-        .selected-subtask-container {
+        .subtask-entry {
             display: flex;
             justify-content: space-between;
             align-items: center;
             min-height: 32px;
             margin-top: 8px;
             padding: 0 16px;
+            border-radius: 8px;
 
-            ul {
-                margin: 0;
-                padding-left: 16px;
-            }
-
-            li {
+            >span {
+                margin-left: 36px;
                 font-size: 16px;
+                font-weight: 400;
             }
 
-            input {
-                width: 100%;
-                border: none;
-                outline: none;
-                font-size: 16px;
-            }
-
-            .double-button-container {
+            .subtask-actions {
                 display: flex;
+                align-items: center;
                 gap: 8px;
+
+                button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    border: none;
+                    background: transparent;
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                .separator-vertical {
+                    height: 24px;
+                    border-left: 1px solid #D1D1D1;
+                }
             }
         }
 
-        .selected-subtask-container:hover {
+        .subtask-entry:hover {
             background-color: #eee;
         }
 
@@ -420,7 +439,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .drop-down {
     position: absolute;
     background-color: white;
-    top: 100%;
     left: 0;
     z-index: 31;
     margin-top: -10px;
@@ -502,10 +520,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .selected-contacts {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 42px);
     width: 100%;
     max-height: 160px;
     overflow-y: auto;
-    display: flex;
     margin-top: 8px;
     gap: 8px;
     flex-wrap: wrap;

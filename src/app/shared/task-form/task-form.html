@@ -166,9 +166,26 @@
                     <div class="selected-subtasks">
                         @for (subtask of subtasks(); track $index) {
                         <div class="subtask-entry">
+
+                            @if (editingSubtaskIndex() === $index) {
+                            <input type="text" maxlength="35" [value]="editingSubtaskTitle()"
+                                (input)="editingSubtaskTitle.set($any($event.target).value)"
+                                (keydown.enter)="$event.preventDefault(); saveEditedSubtask()"
+                                (keydown.escape)="cancelEditSubtask()" />
+                            } @else {
                             <span>{{ subtask }}</span>
+                            }
 
                             <div class="subtask-actions">
+                                @if (editingSubtaskIndex() === $index) {
+                                <button type="button" (click)="cancelEditSubtask()">
+                                    <img src="assets/images/cross.svg" alt="Cancel" />
+                                </button>
+                                <div class="separator-vertical"></div>
+                                <button type="button" (click)="saveEditedSubtask()">
+                                    <img src="assets/images/check.svg" alt="Save" />
+                                </button>
+                                } @else {
                                 <button type="button" (click)="editSubtask($index)">
                                     <img src="assets/images/edit.svg" alt="Edit" />
                                 </button>
@@ -176,6 +193,7 @@
                                 <button type="button" (click)="deleteSubtask($index)">
                                     <img src="assets/images/delete.svg" alt="Delete" />
                                 </button>
+                                }
                             </div>
                         </div>
                         }

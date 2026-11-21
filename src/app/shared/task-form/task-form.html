@@ -165,11 +165,10 @@
 
                     <div class="selected-subtasks">
                         @for (subtask of subtasks(); track $index) {
-                        <div class="subtask-entry">
+                        <div class="subtask-entry" [class.editing]="editingSubtaskIndex() === $index">
 
                             @if (editingSubtaskIndex() === $index) {
-                            <input type="text" maxlength="35" [value]="editingSubtaskTitle()"
-                                (input)="editingSubtaskTitle.set($any($event.target).value)"
+                            <input type="text" maxlength="35" name="editingSubtask" [(ngModel)]="editingSubtaskTitle"
                                 (keydown.enter)="$event.preventDefault(); saveEditedSubtask()"
                                 (keydown.escape)="cancelEditSubtask()" />
                             } @else {
@@ -178,8 +177,8 @@
 
                             <div class="subtask-actions">
                                 @if (editingSubtaskIndex() === $index) {
-                                <button type="button" (click)="cancelEditSubtask()">
-                                    <img src="assets/images/cross.svg" alt="Cancel" />
+                                <button type="button" (click)="deleteSubtask($index)">
+                                    <img src="assets/images/delete.svg" alt="Delete" />
                                 </button>
                                 <div class="separator-vertical"></div>
                                 <button type="button" (click)="saveEditedSubtask()">

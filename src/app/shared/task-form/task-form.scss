@@ -114,9 +114,16 @@
     }
 
     .required-field {
-        font-size: 12px;
+        display: block;
+        min-height: 16px;
+        font-size: 16px;
         font-family: 'Poppins', sans-serif;
-        color: #ff8190;
+        font-weight: bolder;
+        color: #e00821;
+
+        &.invisible {
+            visibility: hidden;
+        }
     }
 }
 
@@ -512,7 +519,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .drop-down-category {
     position: absolute;
     background-color: white;
-    top: 100%;
+    top: 78px;
     left: 0;
     width: 100%;
     z-index: 10;

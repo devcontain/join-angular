@@ -30,6 +30,8 @@ export class TaskForm {
   readonly editingSubtaskIndex = signal<number | null>(null);
   readonly editingSubtaskTitle = signal('');
 
+  readonly formSubmitted = signal(false);
+
   onDateChange(date: string): void {
     if (!date) return;
 
@@ -110,8 +112,34 @@ export class TaskForm {
       tasks.filter((_, i) => i !== index)
     );
 
-    if (this.editingSubtaskIndex() === index) {
-      this.clearSubtaskInput();
-    }
+    this.cancelEditSubtask();
+  }
+
+  clearForm(): void {
+    this.title.set('');
+    this.description.set('');
+    this.dueDate.set('');
+    this.priority.set('medium');
+    this.category.set('');
+
+    this.selectedContacts.set([]);
+    this.subtasks.set([]);
+
+    this.clearSubtaskInput();
+    this.cancelEditSubtask();
+
+    this.categoryDropdownOpen.set(false);
+    this.assignedToDropdownOpen.set(false);
+    this.formSubmitted.set(false);
+  }
+
+  createTask(): void {
+    this.formSubmitted.set(true);
+
+    if (!this.title().trim()) return;
+    if (!this.dueDate().trim()) return;
+    if (!this.category().trim()) return;
+
+    // Weitere Formularprüfungen folgen.
   }
 }

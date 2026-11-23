@@ -115,7 +115,9 @@
 
     .required-field {
         display: block;
-        min-height: 16px;
+        box-sizing: border-box;
+        height: 29px;
+        padding-top: 8px;
         font-size: 16px;
         font-family: 'Poppins', sans-serif;
         font-weight: bolder;

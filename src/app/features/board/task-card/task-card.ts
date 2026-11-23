@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Task } from '../../../models/task'
+import { Task } from '../../../models/task-models'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 

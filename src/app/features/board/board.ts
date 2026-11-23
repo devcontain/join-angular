@@ -2,8 +2,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TaskCard } from './task-card/task-card';
-import { Task } from '../../core/services/task';
-import { Task as TaskModel } from '../../models/task';
+import { Task } from '../../core/services/task-service';
+import { Task as TaskModel } from '../../models/task-models';
 import { TaskModal, } from './task-modal/task-modal';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';

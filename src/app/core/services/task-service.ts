@@ -1,5 +1,5 @@
 import { Service, signal } from '@angular/core';
-import { Task as TaskModel } from '../../models/task';
+import { Task as TaskModel } from '../../models/task-models';
 import * as guest from '../../data/guest-tasks';
 
 @Service()
@@ -8,4 +8,8 @@ export class Task {
     readonly tasksinprogress = signal<TaskModel[]>(structuredClone(guest.tasksinprogress));
     readonly awaitingfeedback = signal<TaskModel[]>(structuredClone(guest.awaitingfeedback));
     readonly done = signal<TaskModel[]>(structuredClone(guest.done));
+
+    addTask(task: TaskModel): void {
+        this.todo.update(tasks => [...tasks, task]);
+    }
 }

@@ -1,5 +1,5 @@
 import { Service, signal, computed } from '@angular/core';
-import { Contact as ContactModel } from '../../models/contact';
+import { Contact as ContactModel } from '../../models/contact-models';
 import * as guest from '../../data/guest-contacts';
 
 @Service()

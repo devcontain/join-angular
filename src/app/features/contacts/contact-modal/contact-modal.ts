@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Contact as ContactModel } from '../../../models/contact';
+import { Contact as ContactModel } from '../../../models/contact-models';
 
 @Component({
   imports: [],

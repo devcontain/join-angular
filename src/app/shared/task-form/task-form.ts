@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { inject, signal } from '@angular/core';
 import { HostListener } from '@angular/core';
-import { Contact } from '../../core/services/contact';
+import { Contact } from '../../core/services/contact-service';
+import { Subtask } from '../../models/task-models';
+import { Contact as ContactModel } from '../../models/task-models';
+import { Task as TaskModel } from '../../models/task-models';
+import { Task as TaskService } from '../../core/services/task-service';
 
 @Component({
   imports: [FormsModule],
@@ -11,6 +15,8 @@ import { Contact } from '../../core/services/contact';
   templateUrl: './task-form.html',
 })
 export class TaskForm {
+  readonly taskService = inject(TaskService);
+
   readonly title = signal('');
   readonly description = signal('');
   readonly dueDate = signal('');
@@ -136,10 +142,74 @@ export class TaskForm {
   createTask(): void {
     this.formSubmitted.set(true);
 
-    if (!this.title().trim()) return;
-    if (!this.dueDate().trim()) return;
-    if (!this.category().trim()) return;
+    const isValid =
+      this.isTitleValid() &&
+      this.isDueDateValid(this.dueDate()) &&
+      this.isCategoryValid();
 
-    // Weitere Formularprüfungen folgen.
+    if (!isValid) return;
+
+    if (this.subtaskInput().trim()) {
+      this.confirmSubtask();
+    }
+
+    const task = this.getTaskData();
+
+    this.taskService.addTask(task);
+    this.clearForm();
+  }
+
+  isDueDateValid(date: string): boolean {
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(date.trim())) return false;
+
+    const [day, month, year] = date.trim().split('/').map(Number);
+    const parsedDate = new Date(year, month - 1, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (parsedDate < today) return false;
+
+    return (
+      parsedDate.getFullYear() === year &&
+      parsedDate.getMonth() === month - 1 &&
+      parsedDate.getDate() === day
+    );
+  }
+
+  isCategoryValid(): boolean {
+    return this.categories.includes(this.category().trim());
+  }
+
+  isTitleValid(): boolean {
+    const title = this.title().trim();
+
+    return title.length > 0 && title.length <= 35;
+  }
+
+  getTaskSubtasks(): Subtask[] {
+    return this.subtasks().map((name, index) => ({
+      id: index,
+      name: name,
+      isChecked: false
+    }));
+  }
+
+  getTaskContacts(): ContactModel[] {
+    return this.contactService.sortedContacts().filter(contact =>
+      this.selectedContacts().includes(contact.id)
+    );
+  }
+
+  getTaskData(): TaskModel {
+    return {
+      id: Date.now(),
+      title: this.title().trim(),
+      description: this.description().trim(),
+      date: this.dueDate(),
+      category: this.category(),
+      prio: this.priority() as TaskModel['prio'],
+      subtasks: this.getTaskSubtasks(),
+      contacts: this.getTaskContacts()
+    };
   }
 }

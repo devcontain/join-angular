@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { Task } from '../../core/services/task';
+import { Task } from '../../core/services/task-service';
 import { RouterLink } from '@angular/router';
 
 

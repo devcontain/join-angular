@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
-import { Contact } from '../../core/services/contact';
-import { Contact as ContactModel } from '../../models/contact';
+import { Contact } from '../../core/services/contact-service';
+import { Contact as ContactModel } from '../../models/contact-models';
 import { ContactModal } from './contact-modal/contact-modal';
 
 @Component({

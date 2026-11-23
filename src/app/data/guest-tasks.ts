@@ -1,4 +1,4 @@
-import type { Task } from '../models/task';
+import type { Task } from '../models/task-models';
 
 export const todo: Task[] = [
     {

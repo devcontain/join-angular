@@ -7,6 +7,7 @@ import { Subtask } from '../../models/task-models';
 import { Contact as ContactModel } from '../../models/task-models';
 import { Task as TaskModel } from '../../models/task-models';
 import { Task as TaskService } from '../../core/services/task-service';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [FormsModule],
@@ -16,6 +17,7 @@ import { Task as TaskService } from '../../core/services/task-service';
 })
 export class TaskForm {
   readonly taskService = inject(TaskService);
+  private readonly router = inject(Router);
 
   readonly title = signal('');
   readonly description = signal('');
@@ -37,6 +39,7 @@ export class TaskForm {
   readonly editingSubtaskTitle = signal('');
 
   readonly formSubmitted = signal(false);
+  readonly taskCreated = signal(false);
 
   onDateChange(date: string): void {
     if (!date) return;
@@ -139,26 +142,6 @@ export class TaskForm {
     this.formSubmitted.set(false);
   }
 
-  createTask(): void {
-    this.formSubmitted.set(true);
-
-    const isValid =
-      this.isTitleValid() &&
-      this.isDueDateValid(this.dueDate()) &&
-      this.isCategoryValid();
-
-    if (!isValid) return;
-
-    if (this.subtaskInput().trim()) {
-      this.confirmSubtask();
-    }
-
-    const task = this.getTaskData();
-
-    this.taskService.addTask(task);
-    this.clearForm();
-  }
-
   isDueDateValid(date: string): boolean {
     if (!/^\d{2}\/\d{2}\/\d{4}$/.test(date.trim())) return false;
 
@@ -211,5 +194,31 @@ export class TaskForm {
       subtasks: this.getTaskSubtasks(),
       contacts: this.getTaskContacts()
     };
+  }
+
+  createTask(): void {
+    this.formSubmitted.set(true);
+
+    const isValid =
+      this.isTitleValid() &&
+      this.isDueDateValid(this.dueDate()) &&
+      this.isCategoryValid();
+
+    if (!isValid) return;
+
+    if (this.subtaskInput().trim()) {
+      this.confirmSubtask();
+    }
+
+    const task = this.getTaskData();
+
+    this.taskService.addTask(task);
+    this.clearForm();
+    this.taskCreated.set(true);
+
+    setTimeout(() => {
+      this.taskCreated.set(false);
+      this.router.navigate(['/board']);
+    }, 1500);
   }
 }

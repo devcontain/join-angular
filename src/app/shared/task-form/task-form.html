@@ -223,9 +223,11 @@
             </div>
         </section>
     </form>
-
+    
+    @if (taskCreated()) {
     <div class="task-added-notification">
         <span>Task added to board</span>
         <img src="assets/images/task_added.svg" alt="" />
     </div>
+    }
 </main>

@@ -558,7 +558,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
     flex-wrap: wrap;
 }
 
-.task-added-notification {
+/* .task-added-notification {
+    display: none;
     position: fixed;
     bottom: 50%;
     left: 50%;
@@ -574,15 +575,15 @@ input[type='date']::-webkit-calendar-picker-indicator {
     align-items: center;
     gap: 12px;
     z-index: 420;
-    display: none;
 }
 
 .notification-display {
     display: flex !important;
     animation: notification-display 0.9s;
 }
+ */
 
-@keyframes notification-display {
+/* @keyframes notification-display {
     from {
         opacity: 0;
         transform: translate(-50%, 60px);
@@ -591,6 +592,40 @@ input[type='date']::-webkit-calendar-picker-indicator {
     to {
         opacity: 1;
         transform: translate(-50%, 0);
+    }
+} */
+
+.task-added-notification {
+    position: fixed;
+    bottom: 58%;
+    left: 30%;
+    width: 326px;
+    height: 74px;
+    color: white;
+    background-color: #2a3647;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 40;
+    animation: notification-display 0.9s;
+
+    span {
+        margin-left: 30px;
+    }
+
+    img {
+        margin-right: 30px;
+    }
+}
+
+@keyframes notification-display {
+    from {
+        bottom: 0%;
+    }
+
+    to {
+        bottom: 58%;
     }
 }
 

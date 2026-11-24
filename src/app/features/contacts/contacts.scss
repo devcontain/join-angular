@@ -54,7 +54,6 @@ main.contacts {
         transition: background-color 100ms ease-in-out;
 
         span {
-            font-family: 'Inter', sans-serif;
             font-size: 21px;
             font-weight: 700;
         }
@@ -145,7 +144,6 @@ main.contacts {
 
 .profile-fullname {
     color: inherit;
-    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     overflow-wrap: anywhere;
@@ -153,7 +151,6 @@ main.contacts {
 
 .contact-email {
     color: #007cee;
-    font-family: 'Inter', sans-serif;
     font-size: 16px;
     overflow-wrap: anywhere;
 }
@@ -267,7 +264,6 @@ main.contacts {
         padding: 0;
         border: none;
         background: transparent;
-        font-family: 'Inter', sans-serif;
         font-size: 16px;
         cursor: pointer;
 
@@ -340,7 +336,7 @@ main.contacts {
     background-color: #2a3647;
     color: #fff;
     font-size: 20px;
-    z-index: 420;
+    z-index: 500;
 }
 
 .notification-display {

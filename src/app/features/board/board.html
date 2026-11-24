@@ -119,5 +119,6 @@
 </main>
 
 @if (selectedTask(); as task) {
-<app-task-modal [task]="task" (closed)="closeTask()" (delete)="deleteTask($event)" />
+<app-task-modal [task]="task" (closed)="closeTask()" (delete)="deleteTask($event)"
+    (subtaskChanged)="taskservice.toggleSubtask($event.taskId, $event.subtaskId)" />
 }

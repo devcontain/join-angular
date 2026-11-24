@@ -22,9 +22,16 @@
         <div class="place-task-progress">
             @if (task().subtasks.length > 0) {
             <div class="collect-subtask">
-                <div class="progress-bar">
-                    <div class="progressbar"></div>
+                <div class="progress-bar" role="progressbar" aria-label="Task progress"
+                    [attr.aria-valuenow]="getSubtaskProgress()" aria-valuemin="0" aria-valuemax="100">
+
+                    <div class="progressbar" [style.width.%]="getSubtaskProgress()">
+                    </div>
                 </div>
+
+                <span class="subtask-count">
+                    {{ getCompletedSubtasks() }}/{{ task().subtasks.length }} Subtasks
+                </span>
             </div>
             }
         </div>

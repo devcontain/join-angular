@@ -8,7 +8,6 @@
 }
 
 .add-task {
-    font-family: 'Inter', sans-serif;
     font-size: 20px;
     min-width: 0;
     width: 100%;
@@ -119,7 +118,6 @@
         height: 29px;
         padding-top: 8px;
         font-size: 16px;
-        font-family: 'Poppins', sans-serif;
         font-weight: bolder;
         color: #e00821;
 
@@ -143,12 +141,10 @@
     border-radius: 10px;
     font-size: 20px;
     background-color: white;
-    font-family: inherit;
 }
 
 input::placeholder,
 textarea::placeholder {
-    font-family: 'Inter', sans-serif;
     color: #d1d1d1;
 }
 
@@ -167,7 +163,6 @@ textarea::placeholder {
         border-radius: 10px;
         min-height: 162px;
         font-size: 20px;
-        font-family: 'Inter', sans-serif;
         padding: 20px;
     }
 
@@ -420,7 +415,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
         border-radius: 10px;
         height: 56px;
         padding: 0 16px;
-        font-family: inherit;
         white-space: nowrap;
 
         img {

@@ -155,6 +155,12 @@
     cursor: pointer;
 }
 
+.subtask-count {
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
 @media (max-width: 1500px) {
     .todo-task-container:hover {
         rotate: 3deg;

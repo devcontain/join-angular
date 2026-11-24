@@ -46,7 +46,7 @@
 
                 @for (subtask of task().subtasks; track subtask.id) {
                 <label class="subtask">
-                    <input type="checkbox" [checked]="subtask.isChecked" />
+                    <input type="checkbox" [checked]="subtask.isChecked" (change)="toggleSubtask(subtask.id)" />
                     <span>{{ subtask.name }}</span>
                 </label>
                 }

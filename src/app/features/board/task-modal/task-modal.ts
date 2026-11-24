@@ -9,6 +9,7 @@ import { Task as TaskModel } from '../../../models/task-models';
 })
 export class TaskModal {
   readonly task = input.required<TaskModel>();
+  readonly subtaskChanged = output<{ taskId: number; subtaskId: number }>();
 
   readonly closed = output<void>();
   readonly edit = output<TaskModel>();
@@ -24,5 +25,12 @@ export class TaskModal {
 
   deleteTask(): void {
     this.delete.emit(this.task());
+  }
+
+  toggleSubtask(subtaskId: number): void {
+    this.subtaskChanged.emit({
+      taskId: this.task().id,
+      subtaskId
+    });
   }
 }

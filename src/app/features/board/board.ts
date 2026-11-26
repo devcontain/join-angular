@@ -1,5 +1,5 @@
 
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TaskCard } from './task-card/task-card';
 import { Task } from '../../core/services/task-service';
@@ -21,6 +21,13 @@ export class Board {
   readonly selectedTask = signal<TaskModel | null>(null);
   private readonly breakpointObserver = inject(BreakpointObserver);
 
+  search = signal('');
+
+  filteredtodo = computed(() => this.filterArray(this.taskservice.todo()));
+  filteredinprogress = computed(() => this.filterArray(this.taskservice.tasksinprogress()));
+  filteredawaitfeedback = computed(() => this.filterArray(this.taskservice.awaitingfeedback()));
+  filtereddone = computed(() => this.filterArray(this.taskservice.done()));
+
   readonly isHorizontal = toSignal(
     this.breakpointObserver.observe('(max-width: 1500px)').pipe(
       map(state => state.matches)
@@ -29,39 +36,66 @@ export class Board {
   );
 
   onTaskDrop(event: CdkDragDrop<TaskModel[]>): void {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+    const source = event.previousContainer.data;
+    const target = event.container.data;
+    const task = event.item.data;
+
+    const previousindex = source.indexOf(task);
+
+    if (previousindex === -1) return;
+
+    const currentindex = this.search().trim().length > 0
+      ? this.getTargetIndex(target, task, event.currentIndex)
+      : event.currentIndex;
+
+    if (source === target) {
+      moveItemInArray(source, previousindex, currentindex);
     } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+      transferArrayItem(source, target, previousindex, currentindex);
     }
 
     this.updateTaskSignals();
   }
 
+  private getTargetIndex(
+    target: TaskModel[],
+    task: TaskModel,
+    currentindex: number
+  ): number {
+    const remaining = target.filter(item => item !== task);
+    const visible = this.filterArray(remaining);
+
+    if (currentindex < visible.length) {
+      return remaining.indexOf(visible[currentindex]);
+    }
+
+    if (visible.length > 0) {
+      return remaining.indexOf(visible[visible.length - 1]) + 1;
+    }
+
+    return remaining.length;
+  }
+
   onTaskDropAtEnd(event: CdkDragDrop<TaskModel[]>): void {
     const source = event.previousContainer.data;
     const target = event.container.data;
+    const task = event.item.data;
+
+    const previousindex = source.indexOf(task);
+
+    if (previousindex === -1) return;
 
     if (source === target) {
       moveItemInArray(
         target,
-        event.previousIndex,
+        previousindex,
         target.length - 1
       );
     } else {
       transferArrayItem(
         source,
         target,
-        event.previousIndex,
+        previousindex,
         target.length
       );
     }
@@ -102,5 +136,10 @@ export class Board {
     );
 
     this.closeTask();
+  }
+
+  filterArray(tasks: TaskModel[]): TaskModel[] {
+    const search = this.search().trim().toLowerCase();
+    return tasks.filter(task => task.title.toLowerCase().includes(search));
   }
 }

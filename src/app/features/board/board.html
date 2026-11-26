@@ -6,9 +6,12 @@
         </div>
 
         <div class="place-search-task">
-            <form class="search-task-tag" role="search">
+            <form class="search-task-tag" role="search" (submit)="$event.preventDefault()">
                 <input id="search_input" class="search-task-in" type="search" placeholder="Search..."
-                    aria-label="Search tasks" />
+                    aria-label="Search tasks" #searchinput (input)="search.set(searchinput.value)" />
+
+                <div class="search-task-separator" aria-hidden="true"></div>
+
                 <button class="search-task-button" type="submit">
                     Search
                 </button>
@@ -31,7 +34,7 @@
                 (cdkDropListDropped)="onTaskDrop($event)"
                 [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
-                @for (task of taskservice.todo(); track task.id) {
+                @for (task of filteredtodo(); track task.id) {
                 <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks To do</div>
@@ -55,7 +58,7 @@
                 [cdkDropListData]="taskservice.tasksinprogress()" (cdkDropListDropped)="onTaskDrop($event)"
                 [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
-                @for (task of taskservice.tasksinprogress(); track task.id) {
+                @for (task of filteredinprogress(); track task.id) {
                 <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks In progress</div>
@@ -79,7 +82,7 @@
                 [cdkDropListData]="taskservice.awaitingfeedback()" (cdkDropListDropped)="onTaskDrop($event)"
                 [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
-                @for (task of taskservice.awaitingfeedback(); track task.id) {
+                @for (task of filteredawaitfeedback(); track task.id) {
                 <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks Await feedback</div>
@@ -102,7 +105,7 @@
                 (cdkDropListDropped)="onTaskDrop($event)"
                 [cdkDropListOrientation]="isHorizontal() ? 'horizontal' : 'vertical'">
 
-                @for (task of taskservice.done(); track task.id) {
+                @for (task of filtereddone(); track task.id) {
                 <app-task-card cdkDrag [cdkDragData]="task" [task]="task" (click)="openTask(task)" />
                 } @empty {
                 <div class="empty-task-place">No tasks Done</div>

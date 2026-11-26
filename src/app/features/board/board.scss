@@ -54,11 +54,26 @@ form.search-task-tag {
     border-radius: 10px;
     background: white;
     color: #555;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 form.search-task-tag:hover,
 form.search-task-tag:focus-within {
     border-color: #1183d6;
+    box-shadow: 0 0 3px #1183d6;
+}
+
+.search-task-separator {
+    flex-shrink: 0;
+    width: 1px;
+    height: 30px;
+    background-color: #d1d1d1;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form.search-task-tag:hover .search-task-separator,
+form.search-task-tag:focus-within .search-task-separator {
+    background-color: #1183d6;
     box-shadow: 0 0 3px #1183d6;
 }
 
